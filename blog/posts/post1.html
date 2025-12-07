@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // SCALING TO 10K</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* --- POST SPECIFIC STYLES --- */
+        .post-body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .post-body h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .post-body p { margin-bottom: 30px; }
+
+        .post-body code {
+            background: #222;
+            color: var(--accent);
+            padding: 2px 5px;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        .code-block {
+            background: #111;
+            border: 1px solid #333;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 30px 0;
+            color: #fff;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .comment { color: #666; }
+        .keyword { color: #ff5f56; }
+        .string { color: #27c93f; }
+        .function { color: #ffbd2e; }
+
+        .callout {
+            border: 2px solid var(--accent);
+            padding: 30px;
+            background: rgba(255, 234, 0, 0.05);
+            color: white;
+            margin: 40px 0;
+        }
+
+        .img-caption {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body style="background: #0a0a0a;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" style="color: black;">RONIN_COMMS</a>
+            <nav class="nav-menu">
+                <a href="../blog.html" class="nav-link" style="color: white;">All Transmissions</a>
+            </nav>
+        </div>
+    </header>
+
+    <section style="background: url('https://placehold.co/1920x600/000000/111111?text=.') center/cover; padding: 120px 0; border-bottom: var(--border);">
+        <div class="container" style="max-width: 900px; text-align: center;">
+            <div style="font-family: monospace; color: var(--accent); margin-bottom: 20px;">
+                // TRANSMISSION_ID: 001 :: SECURITY_CLEARANCE: PUBLIC
+            </div>
+            <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); color: white; line-height: 1.1; margin-bottom: 30px;">
+                SCALING TO 10,000 NODES ON <span class="text-highlight">RASPBERRY PIs</span>
+            </h1>
+            <div style="display: flex; justify-content: center; gap: 30px; font-family: monospace; color: #888;">
+                <span>AUTHOR: ALEX K. (FOUNDER)</span>
+                <span>::</span>
+                <span>DATE: DEC 12, 2025</span>
+                <span>::</span>
+                <span>TIME: 15 MIN READ</span>
+            </div>
+        </div>
+    </section>
+
+    <article class="post-body">
+        
+        <p class="lead" style="font-size: 1.5rem; color: white; font-weight: bold;">
+            We ran out of VC money. AWS credits were burning at a rate of $5,000 a month. We had a choice: Shut down the beta, or build our own cloud. We chose violence.
+        </p>
+
+        <p>
+            The premise was stupid simple: Kubernetes is heavy. Docker is heavy. But containerization is just Linux cgroups and namespaces. If we could strip away the bloat, could we run a global edge network on consumer hardware that costs $35 a pop?
+        </p>
+
+        <h2>1. The Hardware Heist</h2>
+        <p>
+            We didn't buy new. We scraped eBay. We bought bulk lots of Raspberry Pi 4s (4GB RAM models) from a failed crypto-mining operation in Nevada. 
+        </p>
+        <p>
+            <strong>The total haul:</strong> 250 units. <br>
+            <strong>Cost:</strong> $12,000 (roughly 2 months of our AWS bill).
+        </p>
+        
+        <div style="border: 1px solid #333; padding: 10px;">
+            <img src="https://placehold.co/800x400/111111/FFFFFF?text=THE+RACK+SETUP" style="width: 100%;">
+            <div class="img-caption">FIG A: THE "FIRE HAZARD" RACK CONFIGURATION</div>
+        </div>
+
+        <h2>2. The Software Stack (K3s vs. Custom Rust)</h2>
+        <p>
+            Initially, we tried <strong>K3s</strong> (Lightweight Kubernetes). It failed. Even stripped down, the Kubelet agent consumed 600MB of RAM per node. On a 4GB Pi, that's 15% of your resources gone just to keep the lights on.
+        </p>
+        <p>
+            We realized we didn't need orchestration for generic workloads. We needed to deploy <em>our</em> specific container runtime. So we wrote <code>ronin-node</code> in Rust.
+        </p>
+
+        <div class="code-block">
+            <span class="comment">// ronin-node/src/main.rs</span><br>
+            <span class="keyword">fn</span> <span class="function">main</span>() {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> system_ram = sys_info::mem_info().unwrap().total;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Hard limit: Engine takes max 50MB</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> system_ram < 4_000_000 {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;println!(<span class="string">"Initializing Low-Mem Mode..."</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;config::set_gc_aggressive(<span class="keyword">true</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;network::bind_tcp(<span class="string">"0.0.0.0:80"</span>).await;<br>
+            }
+        </div>
+
+        <p>
+            The result? <strong>42MB RAM usage at idle.</strong> This gave us nearly the full capacity of the Pi for user deployments.
+        </p>
+
+        <h2>3. The Heat Problem</h2>
+        <p>
+            Here is what they don't tell you about ARM chips: they throttle aggressively. When you stack 50 Pis in a closet, ambient temperature hits 40°C in minutes.
+        </p>
+        <p>
+            We didn't have budget for a CRAC (Computer Room Air Conditioning) unit. We went to Home Depot. We bought three industrial box fans and built a wind tunnel using PVC pipes. 
+        </p>
+        
+        <div class="callout">
+            <h3>LESSON LEARNED</h3>
+            <p>
+                Infrastructure isn't just software. It's physics. If you cannot displace heat, your 3.5GHz processor becomes a 1.2GHz heater.
+            </p>
+        </div>
+
+        <h2>4. Networking: The Nightmare</h2>
+        <p>
+            Exposing 250 nodes behind a residential ISP NAT is impossible. We used <strong>WireGuard</strong> to create a mesh network. Every Pi dials out to a cheap VPS (the "Gateway") which acts as the public ingress.
+        </p>
+        <p>
+            Traffic flow: <br>
+            <code>User -> VPS (Gateway) -> WireGuard Tunnel -> Raspberry Pi -> Container</code>
+        </p>
+        <p>
+            Latency penalty? About 15ms. Acceptable for our use case (static sites and background workers).
+        </p>
+
+        <h2>5. The Result</h2>
+        <p>
+            We successfully scaled the cluster to handle 10,000 concurrent containers (mostly idle, but active). The entire cluster cost us a one-time fee of $12k plus about $200/month in electricity.
+        </p>
+        <p>
+            Is this production ready? <strong>Absolutely not.</strong><br>
+            Is it cooler than paying Amazon $5k a month? <strong>Yes.</strong>
+        </p>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 60px 0;">
+
+        <h3>READY TO DEPLOY ON REAL HARDWARE?</h3>
+        <p>
+            We took the lessons from the Pi cluster and built the Ronin Cloud. Same efficiency, enterprise-grade hardware.
+        </p>
+        
+        <a href="../index.html" class="btn btn-primary" style="margin-top: 20px;">START DEPLOYING</a>
+
+    </article>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. END OF TRANSMISSION.</p>
+    </footer>
+
+</body>
+</html>

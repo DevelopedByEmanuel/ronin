@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // DOCS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .docs-container { display: flex; min-height: 80vh; }
+        .docs-nav { width: 250px; background: #eee; border-right: 3px solid black; padding: 20px; }
+        .docs-nav a { display: block; padding: 10px; font-weight: bold; border-bottom: 1px solid #ccc; }
+        .docs-nav a:hover { background: var(--accent); color: black; }
+        .docs-content { flex: 1; padding: 40px; }
+        .code-block { background: black; color: #0f0; padding: 20px; font-family: monospace; border: 3px solid #333; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">RONIN_DOCS</div>
+            <div class="nav-links">
+                <a href="index.html">EXIT</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="docs-container">
+        <div class="docs-nav">
+            <a href="#">01. Installation</a>
+            <a href="#">02. Connect GitHub</a>
+            <a href="#">03. Dockerfile Config</a>
+            <a href="#">04. Custom Domains</a>
+            <a href="#">05. API Reference</a>
+        </div>
+        <div class="docs-content">
+            <h1 class="uppercase">01. Installation</h1>
+            <p>To install Ronin on your own VPS (Ubuntu 20.04+), run this command. Do not run this as root unless you want to live dangerously.</p>
+            
+            <div class="code-block">
+                curl -s https://get.ronin.dev/install.sh | bash
+            </div>
+
+            <p>Once installed, the dashboard will be available at port 3000.</p>
+            <br>
+            <h3>Requirements</h3>
+            <ul style="list-style: square; margin-left: 20px;">
+                <li>2GB RAM</li>
+                <li>2 CPU Cores</li>
+                <li>A burning desire for simplicity</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

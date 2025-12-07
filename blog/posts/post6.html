@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // THE VERCEL TAX</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* --- POST SPECIFIC STYLES --- */
+        .post-body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .post-body h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .post-body p { margin-bottom: 30px; }
+
+        .callout {
+            border: 2px solid #ff5f56;
+            padding: 30px;
+            background: rgba(255, 95, 86, 0.05);
+            color: white;
+            margin: 40px 0;
+        }
+
+        .receipt-box {
+            background: white;
+            color: black;
+            padding: 40px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 50px rgba(255,255,255,0.1);
+            margin: 40px 0;
+            transform: rotate(-1deg);
+        }
+
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #000;
+            padding: 10px 0;
+        }
+
+        .receipt-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            border-top: 3px solid #000;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body style="background: #0a0a0a;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" style="color: black;">RONIN_COMMS</a>
+            <nav class="nav-menu">
+                <a href="../blog.html" class="nav-link" style="color: white;">All Transmissions</a>
+            </nav>
+        </div>
+    </header>
+
+    <section style="background: url('https://placehold.co/1920x600/000000/111111?text=.') center/cover; padding: 120px 0; border-bottom: var(--border);">
+        <div class="container" style="max-width: 900px; text-align: center;">
+            <div style="font-family: monospace; color: var(--accent); margin-bottom: 20px;">
+                // TRANSMISSION_ID: 006 :: TYPE: FINANCIAL_ANALYSIS
+            </div>
+            <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); color: white; line-height: 1.1; margin-bottom: 30px;">
+                THE VERCEL TAX: <br> <span class="text-highlight">PAYING FOR AIR</span>
+            </h1>
+            <div style="display: flex; justify-content: center; gap: 30px; font-family: monospace; color: #888;">
+                <span>AUTHOR: THE ACCOUNTANT</span>
+                <span>::</span>
+                <span>DATE: DEC 24, 2025</span>
+                <span>::</span>
+                <span>TIME: 5 MIN READ</span>
+            </div>
+        </div>
+    </section>
+
+    <article class="post-body">
+        
+        <p class="lead" style="font-size: 1.5rem; color: white; font-weight: bold;">
+            Serverless is a luxury lifestyle brand for developers. You pay for the "Developer Experience" (DX), but you get robbed on the infrastructure.
+        </p>
+
+        <p>
+            We love Vercel's UI. It's beautiful. But their business model is essentially reselling AWS Lambda and Cloudfront with a 500% markup. It works great for hobby projects. It is a death sentence for scaling startups.
+        </p>
+
+        <h2>1. The Bandwidth Mafia</h2>
+        <p>
+            Let's look at the math. In 2024, data is cheap. You can get 1TB of transfer on a $5 Hetzner VPS. 
+        </p>
+        <p>
+            On the major "PaaS" providers, once you pass the free tier, the cost per GB is astronomical. It is the digital equivalent of buying bottled water at an airport.
+        </p>
+
+        <div class="receipt-box">
+            <h3 style="text-align: center; margin-bottom: 20px;">INVOICE #0421</h3>
+            
+            <div class="receipt-row">
+                <span>ITEM: 1TB BANDWIDTH (HETZNER)</span>
+                <span>$1.00</span>
+            </div>
+            <div class="receipt-row">
+                <span>ITEM: 1TB BANDWIDTH (AWS)</span>
+                <span>$90.00</span>
+            </div>
+            <div class="receipt-row">
+                <span>ITEM: 1TB BANDWIDTH (VERCEL/NETLIFY)</span>
+                <span>$400.00+</span>
+            </div>
+            
+            <div class="receipt-total">
+                <span>THE MARKUP</span>
+                <span>40,000%</span>
+            </div>
+        </div>
+
+        <h2>2. The Wrapper Trap</h2>
+        <p>
+            "Serverless" functions are just containers that spin up and down rapidly. The provider handles the scaling. That sounds nice, until you realize the trade-off.
+        </p>
+        <p>
+            <strong>Cold Starts:</strong> Your users wait 2 seconds for the container to boot. <br>
+            <strong>Time Limits:</strong> Your function kills itself after 10 seconds. Long-running jobs? Impossible. <br>
+            <strong>Vendor Lock-in:</strong> You start using proprietary features like "Edge Config" or "KV". Now you can't migrate.
+        </p>
+
+        <div class="callout">
+            <h3>THE REALITY CHECK</h3>
+            <p>
+                A $20/month VPS can handle 10x the traffic of a $200/month Serverless bill. The CPU is always on. The RAM is always hot. There are no cold starts.
+            </p>
+        </div>
+
+        <h2>3. Why We Build "Boring" Infrastructure</h2>
+        <p>
+            Ronin is "boring." We don't have proprietary edge runtimes. We don't have magic middleware.
+        </p>
+        <p>
+            We give you a Docker container. It runs on a Linux server. It stays running. You pay for the size of the server, not the number of times someone refreshed your page.
+        </p>
+        <p>
+            Predictable pricing is a feature. Knowing your bill will be exactly $20 next month allows you to sleep. Fearing a viral tweet will bankrupt you does not.
+        </p>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 60px 0;">
+
+        <h3>OWN YOUR METAL</h3>
+        <p>
+            Stop renting wrappers. Start owning servers.
+        </p>
+        
+        <a href="../index.html" class="btn btn-primary" style="margin-top: 20px;">CALCULATE SAVINGS</a>
+
+    </article>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. NO HIDDEN FEES.</p>
+    </footer>
+
+</body>
+</html>

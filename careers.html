@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // BOUNTIES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background: #0a0a0a;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="color: black;">RONIN_OPS</a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link" style="color: white;">Back Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero border-bottom" style="background: url('https://placehold.co/1920x600/000000/111111?text=.') center/cover; padding: 100px 0; color: white;">
+        <div class="container">
+            <div style="border: 1px solid var(--accent); color: var(--accent); display: inline-block; padding: 5px 10px; margin-bottom: 20px; font-family: monospace;">
+                // CLASSIFIED: TOP SECRET
+            </div>
+            <h1 style="font-size: 4rem; margin-bottom: 20px;">ACTIVE BOUNTIES</h1>
+            <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto; color: #999;">
+                We are hunting for mercenaries who speak Rust, C++, and Vue.
+                <br>React developers need not apply.
+            </p>
+        </div>
+    </section>
+
+    <div class="filter-bar-sticky">
+        <div class="container" style="overflow-x: auto; white-space: nowrap;">
+            <button class="btn btn-dark filter-btn active" data-filter="all">ALL MISSIONS</button>
+            <button class="btn btn-dark filter-btn" data-filter="core" style="border-color: #444; color: #ccc;">CORE (RUST)</button>
+            <button class="btn btn-dark filter-btn" data-filter="web" style="border-color: #444; color: #ccc;">WEB (VUE)</button>
+            <button class="btn btn-dark filter-btn" data-filter="platform" style="border-color: #444; color: #ccc;">INFRA</button>
+            <button class="btn btn-dark filter-btn" data-filter="growth" style="border-color: #444; color: #ccc;">GROWTH</button>
+        </div>
+    </div>
+
+    <section class="bounty-section section-pad">
+        <div class="container">
+            
+            <div class="mission-card" data-category="core">
+                <div class="mission-header">
+                    <div class="status-indicator">☠️</div>
+                    <div class="mission-title">
+                        <h3>PRINCIPAL SYSTEMS ARCHITECT</h3>
+                        <div class="mission-meta">
+                            <span>LEVEL: PRINCIPAL</span>
+                            <span>::</span>
+                            <span>REMOTE (GLOBAL)</span>
+                            <span>::</span>
+                            <span style="color: var(--accent);">RUST / ASM</span>
+                        </div>
+                    </div>
+                    <div class="bounty-amount">
+                        <span class="bounty-price">$220k - $280k</span>
+                        <span class="bounty-equity">0.5% - 1.0% EQUITY</span>
+                    </div>
+                </div>
+                <div class="mission-brief">
+                    <div class="brief-inner">
+                        <div class="brief-content">
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE OBJECTIVE</span>
+                                    <p class="brief-text">
+                                        You are the architect of the Ronin Engine (`ronin-core`). Your goal is to build a container orchestration runtime that makes Kubernetes look like a bloatware toy. We need sub-millisecond cold starts, zero-copy networking, and memory safety that would make the NSA jealous.
+                                    </p>
+                                </div>
+                                <div class="brief-section">
+                                    <span class="brief-label">MISSION INTEL (DAY TO DAY)</span>
+                                    <ul class="brief-list">
+                                        <li>Architecting the low-level process isolation logic using Linux Namespaces and cgroups v2.</li>
+                                        <li>Replacing standard libc calls with optimized Assembly where necessary to shave off microseconds.</li>
+                                        <li>Debugging memory leaks using Valgrind, Flamegraphs, and pure intuition.</li>
+                                        <li>Reviewing every line of Rust code that enters the repo. You are the gatekeeper.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE LOADOUT</span>
+                                    <div class="tech-stack-grid">
+                                        <span class="tech-pill">RUST (EXPERT)</span>
+                                        <span class="tech-pill">LINUX KERNEL</span>
+                                        <span class="tech-pill">eBPF</span>
+                                        <span class="tech-pill">DOCKER API</span>
+                                        <span class="tech-pill">WEBASSEMBLY</span>
+                                    </div>
+                                </div>
+                                <div class="brief-section">
+                                    <span class="brief-label">ENGAGEMENT PROTOCOLS</span>
+                                    <p class="brief-text" style="font-size: 14px;">
+                                        Must have 8+ years in Systems Programming. Must have shipped a production Rust binary. Must hate garbage collection.
+                                    </p>
+                                </div>
+                                <button class="mission-apply-btn">ACCEPT MISSION</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card" data-category="core">
+                <div class="mission-header">
+                    <div class="status-indicator">⚙️</div>
+                    <div class="mission-title">
+                        <h3>SENIOR C++ ENGINEER (NETWORKING)</h3>
+                        <div class="mission-meta">
+                            <span>LEVEL: SENIOR</span>
+                            <span>::</span>
+                            <span>REMOTE</span>
+                            <span>::</span>
+                            <span style="color: var(--accent);">C++20</span>
+                        </div>
+                    </div>
+                    <div class="bounty-amount">
+                        <span class="bounty-price">$180k - $240k</span>
+                        <span class="bounty-equity">0.2% - 0.5% EQUITY</span>
+                    </div>
+                </div>
+                <div class="mission-brief">
+                    <div class="brief-inner">
+                        <div class="brief-content">
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE OBJECTIVE</span>
+                                    <p class="brief-text">
+                                        Build our custom Reverse Proxy edge layer. NGINX is great, but we need something faster and more programmable. You will build the traffic controller that routes millions of requests per second to millions of containers.
+                                    </p>
+                                </div>
+                                <div class="brief-section">
+                                    <span class="brief-label">MISSION INTEL</span>
+                                    <ul class="brief-list">
+                                        <li>Writing high-performance, asynchronous C++ networking code (ASIO/epoll).</li>
+                                        <li>Implementing custom load balancing algorithms (Least Connections, Round Robin, etc.).</li>
+                                        <li>Handling automatic SSL termination via Let's Encrypt integration at the C++ level.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE LOADOUT</span>
+                                    <div class="tech-stack-grid">
+                                        <span class="tech-pill">C++20</span>
+                                        <span class="tech-pill">CMAKE</span>
+                                        <span class="tech-pill">OPENSSL</span>
+                                        <span class="tech-pill">GRPC</span>
+                                    </div>
+                                </div>
+                                <button class="mission-apply-btn">ACCEPT MISSION</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card" data-category="core">
+                <div class="mission-header">
+                    <div class="status-indicator">⚡</div>
+                    <div class="mission-title">
+                        <h3>JUNIOR RUST DEVELOPER</h3>
+                        <div class="mission-meta">
+                            <span>LEVEL: JUNIOR</span>
+                            <span>::</span>
+                            <span>REMOTE</span>
+                            <span>::</span>
+                            <span style="color: var(--accent);">RUST</span>
+                        </div>
+                    </div>
+                    <div class="bounty-amount">
+                        <span class="bounty-price">$80k - $110k</span>
+                        <span class="bounty-equity">STOCK OPTIONS</span>
+                    </div>
+                </div>
+                <div class="mission-brief">
+                    <div class="brief-inner">
+                        <div class="brief-content">
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE OBJECTIVE</span>
+                                    <p class="brief-text">
+                                        Cut your teeth on the hardest codebase in the world. You will start by building the Ronin CLI tool (which developers use to deploy) and writing integration tests for the core engine.
+                                    </p>
+                                </div>
+                                <div class="brief-section">
+                                    <span class="brief-label">MISSION INTEL</span>
+                                    <ul class="brief-list">
+                                        <li>Maintaining the `ronin-cli` crate (Clap, Tokio).</li>
+                                        <li>Writing unit tests that cover edge cases in the deployment logic.</li>
+                                        <li>Fixing "Good First Issue" bugs in the core engine under supervision.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE LOADOUT</span>
+                                    <div class="tech-stack-grid">
+                                        <span class="tech-pill">RUST</span>
+                                        <span class="tech-pill">GIT</span>
+                                        <span class="tech-pill">CLI DESIGN</span>
+                                    </div>
+                                </div>
+                                <button class="mission-apply-btn">ACCEPT MISSION</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card" data-category="web">
+                <div class="mission-header">
+                    <div class="status-indicator">👁️</div>
+                    <div class="mission-title">
+                        <h3>SENIOR FRONTEND ARCHITECT</h3>
+                        <div class="mission-meta">
+                            <span>LEVEL: SENIOR</span>
+                            <span>::</span>
+                            <span>REMOTE</span>
+                            <span>::</span>
+                            <span style="color: var(--accent);">VUE 3</span>
+                        </div>
+                    </div>
+                    <div class="bounty-amount">
+                        <span class="bounty-price">$160k - $200k</span>
+                        <span class="bounty-equity">0.3% EQUITY</span>
+                    </div>
+                </div>
+                <div class="mission-brief">
+                    <div class="brief-inner">
+                        <div class="brief-content">
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE OBJECTIVE</span>
+                                    <p class="brief-text">
+                                        React is banned. You are the master of Vue 3. You will build the Ronin Dashboard, a mission-critical control center that streams real-time logs, metrics, and deployment statuses via WebSockets. It must be 60fps at all times.
+                                    </p>
+                                </div>
+                                <div class="brief-section">
+                                    <span class="brief-label">MISSION INTEL</span>
+                                    <ul class="brief-list">
+                                        <li>Designing the component architecture using Vue 3 Composition API and Pinia.</li>
+                                        <li>Implementing virtual scrolling for log outputs that might contain millions of lines.</li>
+                                        <li>Ensuring zero layout shift (CLS) during real-time updates.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE LOADOUT</span>
+                                    <div class="tech-stack-grid">
+                                        <span class="tech-pill">VUE 3</span>
+                                        <span class="tech-pill">VITE</span>
+                                        <span class="tech-pill">PINIA</span>
+                                        <span class="tech-pill">TYPESCRIPT</span>
+                                        <span class="tech-pill">WEBSOCKETS</span>
+                                    </div>
+                                </div>
+                                <button class="mission-apply-btn">ACCEPT MISSION</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card" data-category="web">
+                <div class="mission-header">
+                    <div class="status-indicator">▲</div>
+                    <div class="mission-title">
+                        <h3>NUXT PERFORMANCE LEAD</h3>
+                        <div class="mission-meta">
+                            <span>LEVEL: SENIOR</span>
+                            <span>::</span>
+                            <span>REMOTE</span>
+                            <span>::</span>
+                            <span style="color: var(--accent);">NUXT 3</span>
+                        </div>
+                    </div>
+                    <div class="bounty-amount">
+                        <span class="bounty-price">$150k - $190k</span>
+                        <span class="bounty-equity">0.2% EQUITY</span>
+                    </div>
+                </div>
+                <div class="mission-brief">
+                    <div class="brief-inner">
+                        <div class="brief-content">
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE OBJECTIVE</span>
+                                    <p class="brief-text">
+                                        Manage our SSR infrastructure. You will use Nuxt 3 and Nitro to deliver instant page loads. You are also responsible for the BFF (Backend for Frontend) layer that talks to the Rust core.
+                                    </p>
+                                </div>
+                                <div class="brief-section">
+                                    <span class="brief-label">MISSION INTEL</span>
+                                    <ul class="brief-list">
+                                        <li>Optimizing Nitro server routes for edge deployment.</li>
+                                        <li>Managing hydration strategies to keep Time-To-Interactive low.</li>
+                                        <li>Building middleware for authentication and role-based access control.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE LOADOUT</span>
+                                    <div class="tech-stack-grid">
+                                        <span class="tech-pill">NUXT 3</span>
+                                        <span class="tech-pill">NITRO</span>
+                                        <span class="tech-pill">REDIS</span>
+                                        <span class="tech-pill">VERCEL EDGE (IRONICALLY)</span>
+                                    </div>
+                                </div>
+                                <button class="mission-apply-btn">ACCEPT MISSION</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card" data-category="web">
+                <div class="mission-header">
+                    <div class="status-indicator">🎨</div>
+                    <div class="mission-title">
+                        <h3>CREATIVE DEVELOPER (UI/UX)</h3>
+                        <div class="mission-meta">
+                            <span>LEVEL: MEDIOR</span>
+                            <span>::</span>
+                            <span>REMOTE</span>
+                            <span>::</span>
+                            <span style="color: var(--accent);">GSAP / VUE</span>
+                        </div>
+                    </div>
+                    <div class="bounty-amount">
+                        <span class="bounty-price">$110k - $140k</span>
+                        <span class="bounty-equity">STOCK OPTIONS</span>
+                    </div>
+                </div>
+                <div class="mission-brief">
+                    <div class="brief-inner">
+                        <div class="brief-content">
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE OBJECTIVE</span>
+                                    <p class="brief-text">
+                                        Make it look like a sci-fi movie. We want micro-interactions, particle effects when a build finishes, and glitch effects on hover. Use GSAP and Three.js within the Vue ecosystem.
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE LOADOUT</span>
+                                    <div class="tech-stack-grid">
+                                        <span class="tech-pill">GSAP</span>
+                                        <span class="tech-pill">THREE.JS</span>
+                                        <span class="tech-pill">CSS GRID</span>
+                                        <span class="tech-pill">WEBGL</span>
+                                    </div>
+                                </div>
+                                <button class="mission-apply-btn">ACCEPT MISSION</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card" data-category="platform">
+                <div class="mission-header">
+                    <div class="status-indicator">🛡️</div>
+                    <div class="mission-title">
+                        <h3>SITE RELIABILITY ENGINEER</h3>
+                        <div class="mission-meta">
+                            <span>LEVEL: SENIOR</span>
+                            <span>::</span>
+                            <span>REMOTE</span>
+                            <span>::</span>
+                            <span style="color: var(--accent);">INFRA</span>
+                        </div>
+                    </div>
+                    <div class="bounty-amount">
+                        <span class="bounty-price">$160k - $210k</span>
+                        <span class="bounty-equity">0.4% EQUITY</span>
+                    </div>
+                </div>
+                <div class="mission-brief">
+                    <div class="brief-inner">
+                        <div class="brief-content">
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE OBJECTIVE</span>
+                                    <p class="brief-text">
+                                        Keep the lights on. You manage the underlying physical and cloud infrastructure that powers Ronin Cloud. You are responsible for high availability, disaster recovery, and automated scaling.
+                                    </p>
+                                </div>
+                                <div class="brief-section">
+                                    <span class="brief-label">MISSION INTEL</span>
+                                    <ul class="brief-list">
+                                        <li>Managing bare-metal clusters via Terraform / Ansible.</li>
+                                        <li>Setting up Prometheus/Grafana dashboards to monitor core temperature of servers in Frankfurt.</li>
+                                        <li>Responding to incidents at 3 AM (we pay extra for this).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE LOADOUT</span>
+                                    <div class="tech-stack-grid">
+                                        <span class="tech-pill">KUBERNETES</span>
+                                        <span class="tech-pill">TERRAFORM</span>
+                                        <span class="tech-pill">PROMETHEUS</span>
+                                        <span class="tech-pill">LINUX</span>
+                                    </div>
+                                </div>
+                                <button class="mission-apply-btn">ACCEPT MISSION</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card" data-category="platform">
+                <div class="mission-header">
+                    <div class="status-indicator">💾</div>
+                    <div class="mission-title">
+                        <h3>DATABASE ADMINISTRATOR</h3>
+                        <div class="mission-meta">
+                            <span>LEVEL: SENIOR</span>
+                            <span>::</span>
+                            <span>REMOTE</span>
+                            <span>::</span>
+                            <span style="color: var(--accent);">POSTGRES</span>
+                        </div>
+                    </div>
+                    <div class="bounty-amount">
+                        <span class="bounty-price">$150k - $190k</span>
+                        <span class="bounty-equity">STOCK OPTIONS</span>
+                    </div>
+                </div>
+                <div class="mission-brief">
+                    <div class="brief-inner">
+                        <div class="brief-content">
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE OBJECTIVE</span>
+                                    <p class="brief-text">
+                                        Scale our Postgres clusters. Ronin users generate millions of logs and build events. We need you to tune autovacuum, optimize indexes, and handle sharding strategies.
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE LOADOUT</span>
+                                    <div class="tech-stack-grid">
+                                        <span class="tech-pill">POSTGRESQL</span>
+                                        <span class="tech-pill">PGBOUNCER</span>
+                                        <span class="tech-pill">TIMESCALEDB</span>
+                                        <span class="tech-pill">REDIS</span>
+                                    </div>
+                                </div>
+                                <button class="mission-apply-btn">ACCEPT MISSION</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card" data-category="platform">
+                <div class="mission-header">
+                    <div class="status-indicator">🏴‍☠️</div>
+                    <div class="mission-title">
+                        <h3>SECURITY RESEARCHER (RED TEAM)</h3>
+                        <div class="mission-meta">
+                            <span>LEVEL: SENIOR</span>
+                            <span>::</span>
+                            <span>REMOTE</span>
+                            <span>::</span>
+                            <span style="color: var(--accent);">OFFSEC</span>
+                        </div>
+                    </div>
+                    <div class="bounty-amount">
+                        <span class="bounty-price">$180k - $240k</span>
+                        <span class="bounty-equity">0.5% EQUITY</span>
+                    </div>
+                </div>
+                <div class="mission-brief">
+                    <div class="brief-inner">
+                        <div class="brief-content">
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE OBJECTIVE</span>
+                                    <p class="brief-text">
+                                        Your job is to break Ronin. We want you to find container escape vulnerabilities, network isolation breaches, and XSS flaws before the bad guys do.
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE LOADOUT</span>
+                                    <div class="tech-stack-grid">
+                                        <span class="tech-pill">BURP SUITE</span>
+                                        <span class="tech-pill">GHIDRA</span>
+                                        <span class="tech-pill">METASPLOIT</span>
+                                        <span class="tech-pill">PYTHON</span>
+                                    </div>
+                                </div>
+                                <button class="mission-apply-btn">ACCEPT MISSION</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card" data-category="growth">
+                <div class="mission-header">
+                    <div class="status-indicator">🎤</div>
+                    <div class="mission-title">
+                        <h3>DEVREL LEAD</h3>
+                        <div class="mission-meta">
+                            <span>LEVEL: SENIOR</span>
+                            <span>::</span>
+                            <span>REMOTE</span>
+                            <span>::</span>
+                            <span style="color: var(--accent);">PUBLIC</span>
+                        </div>
+                    </div>
+                    <div class="bounty-amount">
+                        <span class="bounty-price">$160k - $200k</span>
+                        <span class="bounty-equity">0.3% EQUITY</span>
+                    </div>
+                </div>
+                <div class="mission-brief">
+                    <div class="brief-inner">
+                        <div class="brief-content">
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE OBJECTIVE</span>
+                                    <p class="brief-text">
+                                        You are the face of the rebellion. Create content that developers actually want to watch. Speak at conferences. Start flame wars (respectfully) about why Serverless is a scam.
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE LOADOUT</span>
+                                    <div class="tech-stack-grid">
+                                        <span class="tech-pill">TWITTER/X</span>
+                                        <span class="tech-pill">YOUTUBE</span>
+                                        <span class="tech-pill">PUBLIC SPEAKING</span>
+                                        <span class="tech-pill">MEMEOLOGY</span>
+                                    </div>
+                                </div>
+                                <button class="mission-apply-btn">ACCEPT MISSION</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card" data-category="growth">
+                <div class="mission-header">
+                    <div class="status-indicator">📝</div>
+                    <div class="mission-title">
+                        <h3>TECHNICAL WRITER</h3>
+                        <div class="mission-meta">
+                            <span>LEVEL: MEDIOR</span>
+                            <span>::</span>
+                            <span>REMOTE</span>
+                            <span>::</span>
+                            <span style="color: var(--accent);">DOCS</span>
+                        </div>
+                    </div>
+                    <div class="bounty-amount">
+                        <span class="bounty-price">$90k - $120k</span>
+                        <span class="bounty-equity">STOCK OPTIONS</span>
+                    </div>
+                </div>
+                <div class="mission-brief">
+                    <div class="brief-inner">
+                        <div class="brief-content">
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE OBJECTIVE</span>
+                                    <p class="brief-text">
+                                        Good software with bad docs is bad software. Your job is to make the Ronin documentation better than Stripe's. Write tutorials, API references, and migration guides.
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE LOADOUT</span>
+                                    <div class="tech-stack-grid">
+                                        <span class="tech-pill">MARKDOWN</span>
+                                        <span class="tech-pill">VITEPRESS</span>
+                                        <span class="tech-pill">ENGLISH (NATIVE)</span>
+                                    </div>
+                                </div>
+                                <button class="mission-apply-btn">ACCEPT MISSION</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mission-card" data-category="growth">
+                <div class="mission-header">
+                    <div class="status-indicator">🤝</div>
+                    <div class="mission-title">
+                        <h3>CUSTOMER SUCCESS ENGINEER</h3>
+                        <div class="mission-meta">
+                            <span>LEVEL: MEDIOR</span>
+                            <span>::</span>
+                            <span>REMOTE</span>
+                            <span>::</span>
+                            <span style="color: var(--accent);">SUPPORT</span>
+                        </div>
+                    </div>
+                    <div class="bounty-amount">
+                        <span class="bounty-price">$100k - $130k</span>
+                        <span class="bounty-equity">STOCK OPTIONS</span>
+                    </div>
+                </div>
+                <div class="mission-brief">
+                    <div class="brief-inner">
+                        <div class="brief-content">
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE OBJECTIVE</span>
+                                    <p class="brief-text">
+                                        Users will write bad Dockerfiles. They will blame us. You will calmly show them their syntax error. You need to be technical enough to debug Linux environments but patient enough to handle humans.
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="brief-section">
+                                    <span class="brief-label">THE LOADOUT</span>
+                                    <div class="tech-stack-grid">
+                                        <span class="tech-pill">DOCKER</span>
+                                        <span class="tech-pill">BASH</span>
+                                        <span class="tech-pill">ZENDESK</span>
+                                        <span class="tech-pill">EMPATHY</span>
+                                    </div>
+                                </div>
+                                <button class="mission-apply-btn">ACCEPT MISSION</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. <br> END OF TRANSMISSION.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Mission Card Expansion
+            const missions = document.querySelectorAll('.mission-card');
+            
+            missions.forEach(mission => {
+                const header = mission.querySelector('.mission-header');
+                header.addEventListener('click', () => {
+                    // Toggle active state
+                    if (mission.classList.contains('active')) {
+                        mission.classList.remove('active');
+                    } else {
+                        // Optional: Close others
+                        // missions.forEach(m => m.classList.remove('active'));
+                        mission.classList.add('active');
+                    }
+                });
+            });
+
+            // 2. Filters
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update visuals
+                    btns.forEach(b => {
+                        b.classList.remove('active');
+                        b.style.color = '#ccc';
+                        b.style.borderColor = '#444';
+                    });
+                    btn.classList.add('active');
+                    btn.style.color = '#fff';
+                    btn.style.borderColor = '#fff';
+
+                    const category = btn.dataset.filter;
+                    missions.forEach(mission => {
+                        if (category === 'all' || mission.dataset.category === category) {
+                            mission.style.display = 'block';
+                        } else {
+                            mission.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>

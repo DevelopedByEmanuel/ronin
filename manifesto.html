@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // MANIFESTO</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- MANIFESTO SPECIFIC --- */
+        .manifesto-text {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+
+        .highlight-box {
+            border: 1px solid var(--accent);
+            padding: 40px;
+            margin: 60px 0;
+            background: rgba(255, 234, 0, 0.05);
+        }
+
+        .law-card {
+            background: #111;
+            border: 1px solid #333;
+            padding: 40px;
+            transition: 0.3s;
+        }
+
+        .law-card:hover {
+            border-color: white;
+            background: #000;
+        }
+
+        .law-num {
+            font-size: 60px;
+            font-weight: 900;
+            color: #333;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .law-card:hover .law-num { color: var(--accent); }
+
+        .signature-section {
+            background-image: url('https://placehold.co/1920x800/111111/000000?text=.');
+            padding: 100px 0;
+            text-align: center;
+            border-top: var(--border);
+        }
+    </style>
+</head>
+<body style="background: #0a0a0a; color: white;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="color: black;">RONIN_DOC</a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link" style="color: white;">Back Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-split">
+        <div class="hero-text-side">
+            <h1 style="font-size: clamp(3rem, 5vw, 5rem); line-height: 0.9; margin-bottom: 40px;">
+                THE CLOUD <br> IS <span class="text-highlight">BROKEN.</span>
+            </h1>
+            <p style="font-size: 1.25rem; color: #888; border-left: 3px solid var(--accent); padding-left: 20px;">
+                "You don't own your infrastructure. You rent it from a landlord who charges you for the air you breathe."
+            </p>
+        </div>
+        <div class="hero-visual-side" style="background: url('https://placehold.co/800x1000/000000/222222?text=DIGITAL+SERFDOM') center/cover;">
+            <div class="hero-overlay">
+                DOC_ID: 001-ALPHA
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pad">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="font-size: 3rem; margin-bottom: 40px; border-bottom: 2px solid #333; padding-bottom: 20px;">01 // THE GREAT FILTER</h2>
+            
+            <p class="manifesto-text">
+                Software development used to be about <strong>creation</strong>. Now, it is about <strong>configuration</strong>.
+            </p>
+            <p class="manifesto-text">
+                We spend 40% of our time writing code and 60% of our time wrestling with IAM roles, YAML files, and CI/CD pipelines that break because a container registry in us-east-1 had a hiccup.
+            </p>
+            <p class="manifesto-text">
+                Then came the "PaaS" providers (Vercel, Heroku). They promised simplicity. They gave us a credit card bill. They locked us into proprietary runtimes. They made us dependent.
+            </p>
+
+            <div class="highlight-box">
+                <h3 style="color: var(--accent); margin-bottom: 20px;">THE DIGITAL FEUDALISM</h3>
+                <p style="font-size: 1.2rem;">
+                    If you cannot deploy your application without Vercel's proprietary edge functions, <strong>you do not own your application.</strong> You are a digital serf working on a feudal lord's land.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="feature-checkerboard" style="border-top: var(--border);">
+        <div class="checker-img">
+            <img src="https://placehold.co/800x800/111111/FFFFFF?text=BARE+METAL" alt="Iron">
+        </div>
+        <div class="checker-text" style="background: #000;">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">02 // RETURN TO IRON</h2>
+            <p style="font-size: 1.25rem; color: #999; line-height: 1.6;">
+                Computers are fast. Really fast. The latency you feel isn't the hardware; it's the layers of abstraction you piled on top of it.
+            </p>
+            <p style="font-size: 1.25rem; color: #999; line-height: 1.6; margin-top: 20px;">
+                Ronin strips the layers. We give you a Docker container and a port. That's it. No magic. No "serverless warm-up time." Just raw execution.
+            </p>
+        </div>
+    </section>
+<section class="hero-split" style="border-top: var(--border); border-bottom: var(--border);">
+        
+        <div class="hero-text-side" style="background: #050505; justify-content: center;">
+            <div style="color: var(--accent); font-family: monospace; margin-bottom: 20px; font-size: 14px;">
+                // PROTOCOL_ID: GHOST_MODE
+            </div>
+            
+            <h2 style="font-size: clamp(2.5rem, 4vw, 4rem); line-height: 0.95; margin-bottom: 30px; color: white;">
+                WE DON'T KNOW <br> <span class="text-highlight">WHO YOU ARE.</span>
+            </h2>
+            
+            <p style="font-size: 1.2rem; color: #ccc; line-height: 1.6; margin-bottom: 30px;">
+                We don't fingerprint your browser. We don't sell your email to ad networks. To our database, you are just a hex string.
+            </p>
+
+            <div style="border: 2px solid #333; background: #000; padding: 25px; position: relative;">
+                <div style="position: absolute; top: -10px; left: 20px; background: #000; padding: 0 10px; color: #666; font-size: 12px; font-weight: bold;">
+                    EXCEPTION HANDLING
+                </div>
+                <p style="color: #888; font-size: 1rem; font-family: monospace; margin: 0;">
+                    <span style="color: var(--accent); font-weight: bold;">>> WARNING:</span> 
+                    We protect privacy, not crime. If you deploy malware, phishing sites, or illegal content, the anonymity ends. We have bills to pay and we aren't going to prison for you.
+                </p>
+            </div>
+        </div>
+
+<div class="hero-visual-side" style="background: #000; display: flex; align-items: center; justify-content: center; border-left: var(--border);">
+            
+            <div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 40px; font-family: 'Courier New', monospace;">
+                
+                <div style="display: flex; justify-content: space-between; color: #444; font-size: 12px; border-bottom: 1px dashed #333; padding-bottom: 10px; margin-bottom: 20px;">
+                    <span>TTY: /dev/pts/0</span>
+                    <span>SECURE_LINK: ESTABLISHED</span>
+                    <span><span style="color: var(--accent);">●</span> REC</span>
+                </div>
+
+                <div style="flex-grow: 1; color: #ccc; font-size: 14px; line-height: 1.6;">
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #666;">root@ghost:~#</span> ./init_handshake.sh --silent
+                    </div>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: var(--accent);">[SYSTEM]</span> Scanning for trackers...<br>
+                        <span style="color: #666;">> Google Analytics:</span> <span style="color: #ff5f56; text-decoration: line-through;">BLOCKED</span><br>
+                        <span style="color: #666;">> Facebook Pixel:</span> <span style="color: #ff5f56; text-decoration: line-through;">BLOCKED</span><br>
+                        <span style="color: #666;">> Mixpanel:</span> <span style="color: #ff5f56; text-decoration: line-through;">BLOCKED</span>
+                    </div>
+
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: var(--accent);">[SYSTEM]</span> Anonymizing client IP...<br>
+                        <span style="color: #666;">> Route:</span> 192.168.x.x -> <span style="background: white; color: black; padding: 0 4px;">RELAY_NODE_04</span> -> [REDACTED]
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <span style="color: #666;">root@ghost:~#</span> whoami<br>
+                        <span style="color: var(--accent); font-weight: bold; font-size: 1.2rem;">0x1a_31045</span>
+                    </div>
+
+                    <div style="margin-top: 5px;">
+                        <span style="color: #666;">root@ghost:~#</span> _<span style="animation: blink 1s infinite; background: var(--accent); width: 10px; height: 18px; display: inline-block; vertical-align: middle;"></span>
+                    </div>
+                </div>
+
+                <div style="border-top: 1px dashed #333; padding-top: 10px; margin-top: 20px; display: flex; gap: 20px; font-size: 10px; color: #444; text-transform: uppercase;">
+                    <div>MEM: 44MB</div>
+                    <div>CPU: 0.1%</div>
+                    <div>UPTIME: 99.99%</div>
+                    <div style="margin-left: auto;">ENCRYPTION: AES-256</div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <section class="section-pad" style="background: #111;">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 60px;">THE RONIN PROTOCOL</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                
+                <div class="law-card">
+                    <div class="law-num">I.</div>
+                    <h3>MASTERLESS</h3>
+                    <p style="color: #888; margin-top: 15px;">
+                        We serve no master. Ronin is open source. You can host it on AWS, DigitalOcean, or a Raspberry Pi in your closet. We provide the sword; you choose the battlefield.
+                    </p>
+                </div>
+
+                <div class="law-card">
+                    <div class="law-num">II.</div>
+                    <h3>BORING IS BETTER</h3>
+                    <p style="color: #888; margin-top: 15px;">
+                        We reject "Hype Driven Development." We don't use the latest JS framework of the week. We use Rust, Linux, and Postgres. Technology that survives.
+                    </p>
+                </div>
+
+                <div class="law-card">
+                    <div class="law-num">III.</div>
+                    <h3>OWN YOUR DATA</h3>
+                    <p style="color: #888; margin-top: 15px;">
+                        Your logs, your metrics, and your customer data sit on your disk. Not in our cloud. Not in a data lake we sell to advertisers. Yours.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-checkerboard" style="border-top: var(--border);">
+        <div class="checker-text" style="background: #000;">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">03 // THE WEAPONRY</h2>
+            <p style="font-size: 1.25rem; color: #999; line-height: 1.6;">
+                We chose our tools carefully. We optimized for performance, safety, and longevity.
+            </p>
+            <ul style="margin-top: 30px; font-family: monospace; font-size: 18px; color: white;">
+                <li style="margin-bottom: 10px;">> RUST (The Engine)</li>
+                <li style="margin-bottom: 10px;">> VUE 3 (The Dashboard)</li>
+                <li style="margin-bottom: 10px;">> DOCKER (The Runtime)</li>
+                <li style="margin-bottom: 10px;">> LINUX (The Soul)</li>
+            </ul>
+        </div>
+        <div class="checker-img">
+            <img src="https://placehold.co/800x800/FFEA00/000000?text=NO+REACT" alt="No React">
+        </div>
+    </section>
+
+    <section class="signature-section">
+        <div class="container">
+            <h2 style="font-size: 4rem; margin-bottom: 20px;">JOIN THE RESISTANCE</h2>
+            <p style="font-size: 1.5rem; color: #888; max-width: 600px; margin: 0 auto 40px;">
+                The only way to win is to opt out of their game.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <a href="https://github.com" class="btn btn-primary" style="padding: 20px 40px; font-size: 20px;">STAR THE REPO</a>
+                <a href="careers.html" class="btn btn-dark" style="padding: 20px 40px; font-size: 20px; border-color: white; color: white;">CONTRIBUTE CODE</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: var(--border); text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. <br> DEPLOY OR DIE.</p>
+    </footer>
+
+</body>
+</html>

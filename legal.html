@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // LEGAL</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- PAGE SPECIFIC --- */
+        .legal-hero {
+            background-color: #0a0a0a;
+            background-image: url('https://placehold.co/1920x600/050505/0a0a0a?text=.');
+            color: white;
+            padding: 100px 0;
+            border-bottom: var(--border);
+        }
+
+        .legal-content h2 {
+            font-size: 2.5rem;
+            border-bottom: 4px solid var(--accent);
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .legal-content h3 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .legal-content p, .legal-content li {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .legal-block {
+            margin-bottom: 100px;
+            padding-top: 20px;
+            scroll-margin-top: 100px; /* Fixes anchor scrolling behind sticky header */
+        }
+
+        .warning-box {
+            background: #000;
+            color: #fff;
+            padding: 30px;
+            border-left: 5px solid var(--accent);
+            font-family: monospace;
+            margin: 30px 0;
+            box-shadow: 10px 10px 0 #ccc;
+        }
+
+        /* Sidebar Tweak */
+        .legal-sidebar {
+            top: 100px; /* Stick below header */
+            border: 3px solid black;
+            box-shadow: 10px 10px 0 #eee;
+        }
+
+        .legal-nav-item {
+            transition: 0.2s;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .legal-nav-item:last-child { border-bottom: none; }
+
+        .legal-nav-item:hover, .legal-nav-item.active {
+            background: black;
+            color: var(--accent);
+            padding-left: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .legal-hero h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body style="background: #fafafa;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="color: black;">RONIN_LEGAL</a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link" style="color: white;">Back Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="legal-hero">
+        <div class="container">
+            <h1 style="font-size: clamp(3rem, 6vw, 6rem);">THE <span class="text-highlight">FINE PRINT</span></h1>
+            <p style="font-size: 1.5rem; margin-top: 30px; max-width: 600px; color: #999; border-left: 2px solid var(--accent); padding-left: 20px;">
+                We value code over contracts, but our lawyers said we need this page. Read it before you deploy.
+            </p>
+        </div>
+    </section>
+
+    <section class="section-pad">
+        <div class="container">
+            <div class="legal-grid">
+                
+                <div class="legal-sidebar">
+                    <a href="#terms" class="legal-nav-item">1. Terms of Service</a>
+                    <a href="#usage" class="legal-nav-item">2. Acceptable Use</a>
+                    <a href="#payment" class="legal-nav-item">3. Payments & Refunds</a>
+                    <a href="#liability" class="legal-nav-item">4. Liability</a>
+                    <a href="#privacy" class="legal-nav-item">5. Privacy & Data</a>
+                    <a href="#dmca" class="legal-nav-item">6. DMCA / Takedowns</a>
+                    <a href="#termination" class="legal-nav-item">7. Termination</a>
+                </div>
+
+                <div class="legal-content">
+                    
+                    <div id="terms" class="legal-block">
+                        <h2>1. TERMS OF SERVICE</h2>
+                        <p>
+                            Welcome to Ronin. By using our platform (the "Service"), you agree to these terms. If you do not agree, do not use Ronin. Go use Vercel.
+                        </p>
+                        <h3>1.1 The Deal</h3>
+                        <p>
+                            We provide infrastructure. You provide code. We promise to try our best to keep the servers running. You promise not to be a malicious actor.
+                        </p>
+                        <h3>1.2 Age Requirement</h3>
+                        <p>
+                            You must be at least 13 years old to use Ronin. If you are a child prodigy under 13, get your parents to sign up.
+                        </p>
+                    </div>
+
+                    <div id="usage" class="legal-block">
+                        <h2>2. ACCEPTABLE USE POLICY</h2>
+                        <p>
+                            We embrace freedom, but we are not an anarchy. We have zero tolerance for the following:
+                        </p>
+                        <div class="warning-box">
+                            // THE "BAN HAMMER" LIST
+                            <br>> Crypto Mining (We monitor CPU spikes)
+                            <br>> Phishing / Social Engineering
+                            <br>> Malware Distribution
+                            <br>> Child Exploitation Material (Immediate report to Feds)
+                            <br>> DDoS Attacks (Incoming or Outgoing)
+                        </div>
+                        <p>
+                            If you trigger our abuse detection systems, your container will be killed instantly. No questions asked.
+                        </p>
+                    </div>
+
+                    <div id="payment" class="legal-block">
+                        <h2>3. PAYMENTS & REFUNDS</h2>
+                        <h3>3.1 Billing</h3>
+                        <p>
+                            For paid tiers ("Ronin Cloud Pro"), we bill monthly via Stripe. If your payment fails, we will retry 3 times. After that, your deployments go dark.
+                        </p>
+                        <h3>3.2 Refunds</h3>
+                        <p>
+                            <strong>We do not offer refunds.</strong> If you forget to cancel your subscription, that is on you. We are not a gym; canceling is one click in the dashboard.
+                        </p>
+                        <h3>3.3 Price Changes</h3>
+                        <p>
+                            We will never raise prices on existing workloads without 30 days notice. We aren't Unity.
+                        </p>
+                    </div>
+
+                    <div id="liability" class="legal-block">
+                        <h2>4. LIMITATION OF LIABILITY</h2>
+                        <p>
+                            <strong>READ THIS CAREFULLY. THIS IS THE PART WHERE WE SAY IT'S NOT OUR FAULT.</strong>
+                        </p>
+                        <p>
+                            The Service is provided "AS IS" and "AS AVAILABLE". Ronin makes no warranties, expressed or implied, regarding uptime, data integrity, or fitness for a particular purpose.
+                        </p>
+                        <h3>4.1 Data Loss</h3>
+                        <p>
+                            We take backups, but we are not a vault. If you delete your production database, or if a cosmic ray hits our data center, we are not liable for your lost revenue, lost data, or lost reputation.
+                        </p>
+                        <p style="background: var(--accent); display: inline-block; padding: 2px 5px; font-weight: bold; color: black;">
+                            ALWAYS HAVE OFF-SITE BACKUPS.
+                        </p>
+                    </div>
+
+                    <div id="privacy" class="legal-block">
+                        <h2>5. PRIVACY POLICY</h2>
+                        <p>
+                            We collect the bare minimum to make the service work.
+                        </p>
+                        <h3>5.1 What We Collect</h3>
+                        <ul style="list-style: square; margin-left: 20px;">
+                            <li><strong>GitHub Metadata:</strong> Username, Avatar, Email (for auth).</li>
+                            <li><strong>Repository Data:</strong> We clone your code to build it. We do not sell your code. We delete the build artifacts after deployment.</li>
+                            <li><strong>Logs:</strong> We store application logs for 7 days for your debugging convenience, then we purge them.</li>
+                        </ul>
+                        <h3>5.2 Cookies</h3>
+                        <p>
+                            We use a single session cookie to keep you logged in. We do not use Google Analytics, Facebook Pixels, or any third-party trackers.
+                        </p>
+                    </div>
+
+                    <div id="dmca" class="legal-block">
+                        <h2>6. DMCA & COPYRIGHT</h2>
+                        <p>
+                            We respect code. We respect creators. If you steal someone else's work and host it on Ronin, we will take it down. We are not a safe haven for pirates.
+                        </p>
+
+                        <h3>6.1 The Takedown Protocol</h3>
+                        <p>
+                            If you are a copyright holder, and you found your IP hosted on a Ronin deployment, send a formal notice to <strong>legal@ronin.dev</strong>. Your email <u>MUST</u> include:
+                        </p>
+                        <ul style="list-style: square; margin-left: 20px;">
+                            <li><strong>Target:</strong> The exact URL(s) of the infringing content.</li>
+                            <li><strong>Proof:</strong> Evidence that you own the original work.</li>
+                            <li><strong>The Oath:</strong> A statement, under penalty of perjury, that you are telling the truth.</li>
+                        </ul>
+
+                        <h3>6.2 The Counter-Strike</h3>
+                        <p>
+                            If we took down your deployment and you believe you were framed, you can file a <strong>Counter-Notice</strong>. Send us proof of your license. If the original accuser doesn't sue you within 10 business days, we will restore your service.
+                        </p>
+                    </div>
+
+                    <div id="termination" class="legal-block">
+                        <h2>7. TERMINATION & EXILE</h2>
+                        <p>
+                            This relationship is at-will. You can leave whenever you want. We can kick you out whenever we want.
+                        </p>
+
+                        <h3>7.1 The Kill Switch</h3>
+                        <p>
+                            We reserve the absolute right to suspend or terminate your access to the Service immediately for any reason, including but not limited to:
+                        </p>
+                        <div class="warning-box">
+                            // IMMEDIATE TERMINATION TRIGGERS
+                            <br>> Breach of Terms
+                            <br>> Abuse of Support Staff
+                            <br>> Legal Court Order
+                            <br>> Insolvency / Non-Payment
+                        </div>
+
+                        <h3>7.2 Data Cremation</h3>
+                        <p>
+                            If you delete your account, it is a scorched-earth action.
+                        </p>
+                        <p>
+                            Your deployments stop. Your containers are destroyed. Your SSL certificates are revoked. Your database volumes are wiped. We do not keep "ghost backups." Once you hit delete, it is gone forever.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. <br> Don't do anything we wouldn't do.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling active state
+        document.querySelectorAll('.legal-nav-item').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelectorAll('.legal-nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

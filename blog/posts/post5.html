@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // ZERO-COPY NETWORKING</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* --- POST SPECIFIC STYLES --- */
+        .post-body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .post-body h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .post-body p { margin-bottom: 30px; }
+
+        .post-body code {
+            background: #222;
+            color: var(--accent);
+            padding: 2px 5px;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        .code-block {
+            background: #111;
+            border: 1px solid #333;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 30px 0;
+            color: #fff;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .comment { color: #666; }
+        .keyword { color: #ff5f56; }
+        .string { color: #27c93f; }
+        .function { color: #ffbd2e; }
+        .type { color: #5fb3b3; }
+
+        .callout {
+            border: 2px solid var(--accent);
+            padding: 30px;
+            background: rgba(255, 234, 0, 0.05);
+            color: white;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body style="background: #0a0a0a;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" style="color: black;">RONIN_COMMS</a>
+            <nav class="nav-menu">
+                <a href="../blog.html" class="nav-link" style="color: white;">All Transmissions</a>
+            </nav>
+        </div>
+    </header>
+
+    <section style="background: url('https://placehold.co/1920x600/000000/111111?text=.') center/cover; padding: 120px 0; border-bottom: var(--border);">
+        <div class="container" style="max-width: 900px; text-align: center;">
+            <div style="font-family: monospace; color: var(--accent); margin-bottom: 20px;">
+                // TRANSMISSION_ID: 002 :: TYPE: TUTORIAL
+            </div>
+            <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); color: white; line-height: 1.1; margin-bottom: 30px;">
+                ZERO-COPY NETWORKING WITH <span class="text-highlight">IO_URING</span>
+            </h1>
+            <div style="display: flex; justify-content: center; gap: 30px; font-family: monospace; color: #888;">
+                <span>AUTHOR: SARAH M.</span>
+                <span>::</span>
+                <span>DATE: DEC 15, 2025</span>
+                <span>::</span>
+                <span>TIME: 12 MIN READ</span>
+            </div>
+        </div>
+    </section>
+
+    <article class="post-body">
+        
+        <p class="lead" style="font-size: 1.5rem; color: white; font-weight: bold;">
+            We hit a wall. Our NGINX reverse proxy was maxing out CPU usage at 4Gbps throughput. The bottleneck wasn't the network card—it was the Linux kernel context switching.
+        </p>
+
+        <p>
+            To achieve our goal of 10Gbps on a single core, we had to bypass standard syscalls entirely. We moved to <code>io_uring</code>.
+        </p>
+
+        <h2>1. The Syscall Overhead</h2>
+        <p>
+            In traditional networking (using <code>epoll</code>), every time you read a packet, you make a system call. The CPU pauses your application, switches to kernel mode, does the work, and switches back.
+        </p>
+        <p>
+            This "mode switching" takes nanoseconds, but when you are processing millions of packets per second, it burns 40% of your CPU cycles just "asking" to do work.
+        </p>
+
+        <h2>2. Implementing io_uring in C</h2>
+        <p>
+            <code>io_uring</code> creates a shared ring buffer between user space (your app) and kernel space. You drop a "submission" into the ring, and the kernel picks it up without waking you up.
+        </p>
+        <p>
+            Here is the C implementation of the setup:
+        </p>
+
+        <div class="code-block">
+            <span class="comment">// setup_ring.c</span><br>
+            <span class="keyword">struct</span> io_uring ring;<br>
+            <br>
+            <span class="keyword">int</span> setup_io_uring(<span class="keyword">unsigned</span> entries) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">struct</span> io_uring_params params;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;memset(&params, 0, <span class="keyword">sizeof</span>(params));<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;params.flags |= IORING_SETUP_SQPOLL; <span class="comment">// Kernel poller thread</span><br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">int</span> ret = io_uring_queue_init_params(entries, &ring, &params);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (ret < 0) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fprintf(stderr, <span class="string">"Queue init failed: %d\n"</span>, ret);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> -1;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> 0;<br>
+            }
+        </div>
+
+        <h2>3. The Zero-Copy Trick (SPLICE)</h2>
+        <p>
+            The real magic is combining `io_uring` with <code>SPLICE</code>. Usually, a proxy reads data into a user buffer, then writes it out to another socket.
+        </p>
+        <p>
+            <code>Kernel -> User RAM -> Kernel -> Network Card</code>
+        </p>
+        <p>
+            With <strong>Zero-Copy</strong>, we tell the kernel to move the data from Socket A directly to Socket B. The data never touches our application memory.
+        </p>
+
+        <div class="code-block">
+            <span class="comment">// Submitting a SPLICE request</span><br>
+            <span class="keyword">struct</span> io_uring_sqe *sqe = io_uring_get_sqe(&ring);<br>
+            io_uring_prep_splice(sqe, <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;fd_in, NULL, <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;pipe_write, NULL, <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;len, <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;SPLICE_F_MOVE | SPLICE_F_MORE<br>
+            );<br>
+            io_uring_submit(&ring);
+        </div>
+
+        <div class="callout">
+            <h3>THE RESULT</h3>
+            <p>
+                We dropped CPU usage by 60%. We hit 10Gbps line rate on a single core. The latency distribution flattened, eliminating the p99 spikes caused by syscall blocking.
+            </p>
+        </div>
+
+        <h2>4. Why Rust?</h2>
+        <p>
+            While the core logic is C (via `liburing`), managing the lifecycle of these pointers is a nightmare. One use-after-free and you kernel panic.
+        </p>
+        <p>
+            We wrap this C logic in <strong>Rust</strong> abstractions. The borrow checker ensures that we don't drop a buffer while the kernel is still holding it. It is unsafe code wrapped in safe interfaces.
+        </p>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 60px 0;">
+
+        <h3>WE LIKE HARD PROBLEMS</h3>
+        <p>
+            If you know what a ring buffer is, we want to talk to you.
+        </p>
+        
+        <a href="../careers.html" class="btn btn-primary" style="margin-top: 20px;">VIEW SYSTEMS ROLES</a>
+
+    </article>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. KERNEL MODE.</p>
+    </footer>
+
+</body>
+</html>

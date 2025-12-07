@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // INVESTOR RELATIONS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- PAGE SPECIFIC STYLES --- */
+        .ir-hero {
+            background-image: url('https://placehold.co/1920x800/050505/111111?text=.');
+            padding: 140px 0;
+            color: white;
+            border-bottom: var(--border);
+            text-align: center;
+        }
+
+        /* The Stock Ticker */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--accent);
+            border-bottom: var(--border);
+            white-space: nowrap;
+        }
+
+        .ticker {
+            display: inline-block;
+            padding: 15px 0;
+            animation: ticker 20s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            padding: 0 40px;
+            font-size: 18px;
+            font-weight: 900;
+            color: black;
+            font-family: monospace;
+        }
+
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        /* Financial Cards */
+        .finance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0;
+            border: var(--border);
+            background: black;
+        }
+
+        .finance-card {
+            background: white;
+            padding: 40px;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .finance-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: black;
+            margin: 10px 0;
+        }
+
+        .finance-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .trend-up { color: #00aa00; font-size: 14px; font-weight: bold; }
+        .trend-flat { color: #666; font-size: 14px; font-weight: bold; }
+
+        /* Board Grid */
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .director-card {
+            border: var(--border);
+            background: white;
+            padding: 0;
+            transition: 0.3s;
+        }
+        
+        .director-card:hover { transform: translateY(-5px); box-shadow: 8px 8px 0 black; }
+
+        .director-img {
+            height: 200px;
+            background: #eee;
+            border-bottom: var(--border);
+            overflow: hidden;
+        }
+        
+        .director-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.3s; }
+        .director-card:hover .director-img img { filter: grayscale(0%); }
+
+        .director-info { padding: 25px; }
+
+        /* FAQ Accordion overrides */
+        .faq-item {
+            border: var(--border);
+            margin-bottom: 20px;
+            background: white;
+        }
+        .faq-question {
+            padding: 20px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s ease;
+            color: #444;
+            border-top: 1px solid transparent;
+        }
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 200px;
+            border-top: 2px solid black;
+        }
+        .faq-item.active { box-shadow: 6px 6px 0 black; transform: translate(-2px, -2px); }
+
+    </style>
+</head>
+<body>
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="color: black;">RONIN_IR</a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link" style="color: white;">Back Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span class="ticker-item">RONIN: $0.00 (STABLE)</span>
+            <span class="ticker-item">///</span>
+            <span class="ticker-item">MARKET CAP: INFINITE</span>
+            <span class="ticker-item">///</span>
+            <span class="ticker-item">DIVIDENDS: 100% OPEN SOURCE</span>
+            <span class="ticker-item">///</span>
+            <span class="ticker-item">VC FUNDING: REJECTED</span>
+            <span class="ticker-item">///</span>
+            <span class="ticker-item">RONIN: $0.00 (STABLE)</span>
+            <span class="ticker-item">///</span>
+            <span class="ticker-item">MARKET CAP: INFINITE</span>
+            <span class="ticker-item">///</span>
+            <span class="ticker-item">DIVIDENDS: 100% OPEN SOURCE</span>
+            <span class="ticker-item">///</span>
+            <span class="ticker-item">VC FUNDING: REJECTED</span>
+        </div>
+    </div>
+
+    <section class="ir-hero">
+        <div class="container">
+            <div style="display: inline-block; border: 2px solid white; padding: 5px 15px; margin-bottom: 20px; font-weight: bold; font-family: monospace;">Q4 2025 REPORT</div>
+            <h1 style="font-size: clamp(3rem, 6vw, 6rem); line-height: 0.9;">
+                PUBLICLY TRADED. <br> <span class="text-highlight" style="color: #000;">PRIVATELY OWNED.</span>
+            </h1>
+            <p style="font-size: 1.5rem; max-width: 700px; margin: 30px auto; color: #ccc;">
+                We don't report to Wall Street. We report to the `git log`. 
+                <br>Here are the only metrics that matter.
+            </p>
+        </div>
+    </section>
+
+    <section class="section-pad" style="background: #fafafa; border-bottom: var(--border);">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 60px;">PERFORMANCE METRICS</h2>
+            
+            <div class="finance-grid">
+                <div class="finance-card">
+                    <div class="finance-label">ANNUAL REVENUE</div>
+                    <div class="finance-number">$0.00</div>
+                    <div class="trend-flat">― STABLE (IT'S FREE)</div>
+                </div>
+
+                <div class="finance-card">
+                    <div class="finance-label">GLOBAL UPTIME</div>
+                    <div class="finance-number">99.9%</div>
+                    <div class="trend-up">▲ 0.1% YOY</div>
+                </div>
+
+                <div class="finance-card">
+                    <div class="finance-label">ACTIVE NODES</div>
+                    <div class="finance-number">14.2k</div>
+                    <div class="trend-up">▲ 240% YOY</div>
+                </div>
+
+                <div class="finance-card">
+                    <div class="finance-label">BURN RATE</div>
+                    <div class="finance-number">$0</div>
+                    <div class="trend-flat">― SELF-HOSTED</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero-split" style="background: white; border-bottom: var(--border);">
+        <div class="hero-text-side" style="background: white; color: black; padding: 80px;">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">CAP TABLE</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 40px; color: #666;">
+                Most tech companies are owned by a handful of guys on Sand Hill Road. Ronin is owned by the people who actually write the code.
+            </p>
+            
+            <table class="compare-table" style="margin-top: 0; background: white;">
+                <thead>
+                    <tr>
+                        <th>ENTITY</th>
+                        <th>CLASS</th>
+                        <th>CONTROL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sequoia Capital</td>
+                        <td>None</td>
+                        <td>0%</td>
+                    </tr>
+                    <tr>
+                        <td>a16z</td>
+                        <td>None</td>
+                        <td>0%</td>
+                    </tr>
+                    <tr style="background: var(--accent); font-weight: bold;">
+                        <td style="border-color: black;">THE COMMUNITY</td>
+                        <td style="border-color: black;">PREFERRED A</td>
+                        <td style="border-color: black;">100%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="checker-text" style="background: #111; color: white; align-items: center; border-left: var(--border);">
+            <div class="donut-chart" style="width: 350px; height: 350px; box-shadow: 0 0 50px rgba(255,234,0,0.2);">
+                <div style="text-align: center;">
+                    <div style="font-size: 60px; line-height: 1;">100%</div>
+                    <div style="font-size: 14px; color: #888;">COMMUNITY</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pad">
+        <div class="container">
+            <h2 class="text-center">THE BOARD OF DIRECTORS</h2>
+            <p class="text-center" style="max-width: 600px; margin: 20px auto; color: #666;">
+                We don't have suits in a boardroom. We have maintainers in a Discord channel.
+            </p>
+
+            <div class="board-grid">
+                <div class="director-card">
+                    <div class="director-img">
+                        <img src="https://placehold.co/400x300/111111/FFEA00?text=YOU" alt="The User">
+                    </div>
+                    <div class="director-info">
+                        <h3>THE USER</h3>
+                        <p style="color: #666; font-size: 14px; font-weight: bold; margin-bottom: 10px;">CHAIRMAN OF THE BOARD</p>
+                        <p>You decide what features get built by opening Issues. You decide if we survive by starring the repo.</p>
+                    </div>
+                </div>
+
+                <div class="director-card">
+                    <div class="director-img">
+                        <img src="https://placehold.co/400x300/111111/FFFFFF?text=LINTER" alt="The Linter">
+                    </div>
+                    <div class="director-info">
+                        <h3>THE COMPILER</h3>
+                        <p style="color: #666; font-size: 14px; font-weight: bold; margin-bottom: 10px;">CHIEF COMPLIANCE OFFICER</p>
+                        <p>Ruthless. Unforgiving. Does not care about your feelings. Ensures code quality remains absolute.</p>
+                    </div>
+                </div>
+
+                <div class="director-card">
+                    <div class="director-img">
+                        <img src="https://placehold.co/400x300/111111/FFFFFF?text=CONTRIBUTORS" alt="Contributors">
+                    </div>
+                    <div class="director-info">
+                        <h3>THE MAINTAINERS</h3>
+                        <p style="color: #666; font-size: 14px; font-weight: bold; margin-bottom: 10px;">EXECUTIVE COMMITTEE</p>
+                        <p>The sleepless elite who merge PRs at 4 AM and keep the documentation up to date.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pad border-top" style="background: #fafafa;">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="text-center" style="margin-bottom: 40px;">FAQ FOR VENTURE CAPITALISTS</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can we hop on a quick 15-min synergy call?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    No. We are shipping code.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is your TAM (Total Addressable Market)?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Everyone who hates AWS Console. So, roughly 30 million developers.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do you plan to monetize?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    We sell enterprise support to companies that are too scared to run `docker-compose up` themselves. It works great.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is your exit strategy?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Death.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer style="background: black; color: white; padding: 80px 0 40px; border-top: var(--border);">
+        <div class="container text-center">
+            <h2 style="color: var(--accent);">INVEST IN CODE.</h2>
+            <p style="margin: 20px 0; color: #888;">The market is open 24/7/365.</p>
+            <a href="https://github.com" class="btn btn-primary">VIEW SOURCE CODE</a>
+            <div style="border-top: 1px solid #333; margin-top: 60px; padding-top: 30px; color: #444;">
+                &copy; 2025 RONIN. NO RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const span = item.querySelector('span');
+                span.textContent = parent.classList.contains('active') ? '-' : '+';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // THE MAC MINI FARM</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* --- POST SPECIFIC STYLES --- */
+        .post-body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .post-body h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .post-body p { margin-bottom: 30px; }
+
+        .callout {
+            border: 2px solid #ff5f56;
+            padding: 30px;
+            background: rgba(255, 95, 86, 0.05);
+            color: white;
+            margin: 40px 0;
+        }
+
+        .receipt-box {
+            background: white;
+            color: black;
+            padding: 40px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 50px rgba(255,255,255,0.1);
+            margin: 40px 0;
+            transform: rotate(1deg);
+        }
+
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #000;
+            padding: 10px 0;
+        }
+
+        .receipt-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            border-top: 3px solid #000;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body style="background: #0a0a0a;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" style="color: black;">RONIN_COMMS</a>
+            <nav class="nav-menu">
+                <a href="../blog.html" class="nav-link" style="color: white;">All Transmissions</a>
+            </nav>
+        </div>
+    </header>
+
+    <section style="background: url('https://placehold.co/1920x600/000000/111111?text=.') center/cover; padding: 120px 0; border-bottom: var(--border);">
+        <div class="container" style="max-width: 900px; text-align: center;">
+            <div style="font-family: monospace; color: var(--accent); margin-bottom: 20px;">
+                // TRANSMISSION_ID: 008 :: TYPE: HARDWARE
+            </div>
+            <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); color: white; line-height: 1.1; margin-bottom: 30px;">
+                WHY WE BOUGHT <br> 50 USED <span class="text-highlight">MAC MINIS</span>
+            </h1>
+            <div style="display: flex; justify-content: center; gap: 30px; font-family: monospace; color: #888;">
+                <span>AUTHOR: THE OPS TEAM</span>
+                <span>::</span>
+                <span>DATE: JAN 05, 2026</span>
+                <span>::</span>
+                <span>TIME: 4 MIN READ</span>
+            </div>
+        </div>
+    </section>
+
+    <article class="post-body">
+        
+        <p class="lead" style="font-size: 1.5rem; color: white; font-weight: bold;">
+            Building iOS apps requires a Mac. It is the golden rule of Apple's ecosystem. But renting a Mac in the cloud is highway robbery.
+        </p>
+
+        <p>
+            When we needed to scale our CI/CD pipeline for the Ronin mobile companion app, we looked at AWS EC2 Mac instances. The pricing was offensive. It is cheaper to lease a luxury car than to run a decent build farm on AWS.
+        </p>
+
+        <h2>1. The Cloud Premium</h2>
+        <p>
+            AWS charges you for the bare metal host. Because of Apple's EULA, you have to rent the host for a minimum of 24 hours. You can't just spin it up for 10 minutes to run a build and shut it down.
+        </p>
+        <p>
+            This breaks the entire promise of cloud elasticity. You are paying for idle time. A lot of it.
+        </p>
+
+        <div class="receipt-box">
+            <h3 style="text-align: center; margin-bottom: 20px;">YEARLY COST (10 NODES)</h3>
+            
+            <div class="receipt-row">
+                <span>AWS MAC1.METAL ($1.083/hr x 24h x 365d x 10)</span>
+                <span>$94,870.80</span>
+            </div>
+            <div class="receipt-row">
+                <span>EBS STORAGE (Because SSDs aren't included)</span>
+                <span>$2,400.00</span>
+            </div>
+            <div class="receipt-row">
+                <span>DATA TRANSFER</span>
+                <span>$1,000.00</span>
+            </div>
+            
+            <div class="receipt-total">
+                <span>AWS TOTAL</span>
+                <span>$98,270.80</span>
+            </div>
+        </div>
+
+        <h2>2. The eBay Strategy</h2>
+        <p>
+            We realized that a used M1 Mac Mini (8GB RAM) on eBay costs about $400. A slightly older Intel Mac Mini costs $200.
+        </p>
+        <p>
+            We bought 50 of them. We didn't buy racks. We bought IKEA shelving units and 3D-printed vertical stands. We wired them up with a cheap Netgear switch.
+        </p>
+        <p>
+            <strong>Total Setup Cost:</strong> ~$18,000 (One time). <br>
+            <strong>Electricity:</strong> ~$150/month.
+        </p>
+
+        <div class="callout">
+            <h3>THE SAVINGS</h3>
+            <p>
+                In Year 1, we saved over <strong>$80,000</strong>. In Year 2, the savings are nearly 100% because the hardware is paid for.
+            </p>
+        </div>
+
+        <h2>3. Dealing with the "Jank"</h2>
+        <p>
+            Is it pretty? No. It looks like a crypto mine. 
+        </p>
+        <p>
+            <strong>Power Management:</strong> We set the BIOS (or Apple equivalent) to "Start up automatically after a power failure." We put them on smart plugs so we can hard-reboot them remotely if they freeze.
+        </p>
+        <p>
+            <strong>Networking:</strong> We use Tailscale to tunnel into the rack from our CI/CD controller. No open ports. No complex VPNs.
+        </p>
+        <p>
+            <strong>Cooling:</strong> We bought a literal box fan from Walmart and pointed it at the shelf. Temperature dropped 10 degrees.
+        </p>
+
+        <h2>4. Performance Wins</h2>
+        <p>
+            Here is the funny part: Our "janky" rack is faster than AWS.
+        </p>
+        <p>
+            AWS Mac instances run on older hardware (unless you pay even more for M2 pros). Our eBay M1s shred compile times. Because they are on a local LAN, caching artifacts is instant. We aren't waiting for S3 uploads.
+        </p>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 60px 0;">
+
+        <h3>DON'T RENT. OWN.</h3>
+        <p>
+            The cloud is great for bursty traffic. It is terrible for sustained workloads. Buy the hardware.
+        </p>
+        
+        <a href="../../careers.html" class="btn btn-primary" style="margin-top: 20px;">DEPLOY ON METAL</a>
+
+    </article>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. DIY OR DIE.</p>
+    </footer>
+
+</body>
+</html>

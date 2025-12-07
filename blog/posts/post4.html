@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // THE KILL SWITCH</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* --- POST SPECIFIC STYLES --- */
+        .post-body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .post-body h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff5f56; /* Red for Danger */
+            padding-left: 20px;
+        }
+
+        .post-body p { margin-bottom: 30px; }
+
+        .post-body code {
+            background: #222;
+            color: var(--accent);
+            padding: 2px 5px;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        .code-block {
+            background: #111;
+            border: 1px solid #333;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 30px 0;
+            color: #fff;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .comment { color: #666; }
+        .keyword { color: #ff5f56; }
+        .string { color: #27c93f; }
+        .flag { color: #ffbd2e; }
+
+        .alert-box {
+            border: 2px solid #ff5f56;
+            padding: 30px;
+            background: rgba(255, 95, 86, 0.1);
+            color: white;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body style="background: #0a0a0a;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" style="color: black;">RONIN_COMMS</a>
+            <nav class="nav-menu">
+                <a href="../blog.html" class="nav-link" style="color: white;">All Transmissions</a>
+            </nav>
+        </div>
+    </header>
+
+    <section style="background: url('https://placehold.co/1920x600/000000/111111?text=.') center/cover; padding: 120px 0; border-bottom: var(--border);">
+        <div class="container" style="max-width: 900px; text-align: center;">
+            <div style="font-family: monospace; color: #ff5f56; margin-bottom: 20px;">
+                // TRANSMISSION_ID: 003 :: STATUS: CRITICAL
+            </div>
+            <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); color: white; line-height: 1.1; margin-bottom: 30px;">
+                THE <span style="background: #ff5f56; color: black; padding: 0 10px;">KILL SWITCH</span> UPDATE
+            </h1>
+            <div style="display: flex; justify-content: center; gap: 30px; font-family: monospace; color: #888;">
+                <span>AUTHOR: ALEX K.</span>
+                <span>::</span>
+                <span>DATE: DEC 20, 2025</span>
+                <span>::</span>
+                <span>TIME: 3 MIN READ</span>
+            </div>
+        </div>
+    </section>
+
+    <article class="post-body">
+        
+        <p class="lead" style="font-size: 1.5rem; color: white; font-weight: bold;">
+            Scenario: It's 3 AM. Your phone buzzes. PagerDuty is screaming. Your API latency is 15,000ms. Your bandwidth usage just hit 10TB in an hour.
+        </p>
+
+        <p>
+            You are being DDoS'd. Or maybe your `while(true)` loop just went rogue. It doesn't matter. You are bleeding cash. 
+        </p>
+        <p>
+            On AWS, you'd be logging into a slow console, trying to find the "Stop Instance" button while the UI lags. We fixed that.
+        </p>
+
+        <h2>1. One Command to End It All</h2>
+        <p>
+            We introduced <code>ronin kill</code>. This is the digital equivalent of pulling the ethernet cable out of the wall. It bypasses the standard graceful shutdown procedures. It is immediate.
+        </p>
+
+        <div class="code-block">
+            <span class="comment"># The Panic Button</span><br>
+            <span class="keyword">$</span> ronin kill <span class="flag">--target</span> production-api <span class="flag">--force</span><br>
+            <br>
+            <span class="comment">> Initiating emergency shutdown...</span><br>
+            <span class="string">> CUTTING TRAFFIC AT EDGE PROXY... [OK]</span><br>
+            <span class="string">> TERMINATING CONTAINERS (SIGKILL)... [OK]</span><br>
+            <span class="string">> REVOKING API KEYS... [OK]</span><br>
+            <span class="string">> FLUSHING REDIS QUEUE... [OK]</span><br>
+            <br>
+            <span class="keyword">SYSTEM STATUS:</span> <span style="color: #ff5f56;">OFFLINE</span>. COST LEAK STOPPED.
+        </div>
+
+        <h2>2. How It Works (The Edge Drop)</h2>
+        <p>
+            Standard shutdowns try to finish processing pending requests. That’s polite. But in an attack scenario, politeness is expensive.
+        </p>
+        <p>
+            When you invoke the Kill Switch, our control plane sends a signal to the C++ Reverse Proxy layer. We don't just stop the container; we <strong>drop the routing table entry</strong>. 
+        </p>
+        <p>
+            Any traffic destined for your domain is rejected at the edge with a hard <code>444 No Response</code> before it even enters our internal network. This saves you bandwidth costs immediately.
+        </p>
+
+        <h2>3. Automatic Key Rotation</h2>
+        <p>
+            If you are being attacked, your API keys might be compromised. 
+        </p>
+        <p>
+            The Kill Switch has an optional flag: <code>--rotate-keys</code>. This instantly invalidates your current ENV variables containing `_KEY` or `_SECRET` and generates new ones, pushing them to your secrets manager.
+        </p>
+
+        <div class="alert-box">
+            <h3>⚠️ WARNING</h3>
+            <p>
+                This is a destructive action. Active users will be disconnected. Websockets will terminate. Database connections will be severed abruptly. Use only in case of emergency.
+            </p>
+        </div>
+
+        <h2>4. The "Maintenance Mode" Page</h2>
+        <p>
+            Once the service is dead, you don't want users seeing a generic browser timeout. Ronin automatically serves a static, lightweight <code>503 Service Unavailable</code> HTML page from the edge cache.
+        </p>
+        <p>
+            You can customize this page via `ronin.toml` to say <em>"We are under maintenance"</em> instead of <em>"We are being destroyed by a botnet."</em>
+        </p>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 60px 0;">
+
+        <h3>SLEEP SOUNDLY</h3>
+        <p>
+            Deployment shouldn't be scary. Knowing you have a panic button gives you the confidence to ship on Fridays.
+        </p>
+        
+        <a href="../careers.html" class="btn btn-primary" style="margin-top: 20px;">BUILD DEFENSE SYSTEMS</a>
+
+    </article>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. SAFETY OFF.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // DEPLOY OR DIE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="color: black;">RONIN_</a>
+            <nav class="nav-menu">
+                <a href="./features.html" class="nav-link" style="color: white;">Features</a>
+                <a href="shareholders.html" class="nav-link" style="color: white;">Shareholders</a>
+                <a href="careers.html" class="nav-link" style="color: white;">Bounties</a>
+                <a href="manifesto.html" class="nav-link" style="color: white;">Manifesto</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-primary">Start Engine</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-split">
+        <div class="hero-text-side">
+            <div style="margin-bottom: 20px;">
+                <span class="job-tag tag-senior">v2.0 STABLE</span>
+                <span class="job-tag tag-stack" style="border: 1px solid #333;">OPEN SOURCE</span>
+            </div>
+            <h1 style="font-size: clamp(3.5rem, 5vw, 5rem); line-height: 0.9; color: white; margin-bottom: 30px;">
+                DEPLOYMENT <br> FOR THE <br> <span class="text-highlight">MASTERLESS.</span>
+            </h1>
+            <p style="font-size: 1.25rem; color: #999; max-width: 600px; margin-bottom: 40px; line-height: 1.6;">
+                The open-source engine that turns your GitHub repo into a live container in seconds. No Vercel tax. No vendor lock-in. Just raw infrastructure.
+            </p>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <a href="#" class="btn btn-primary" style="padding: 15px 40px;">DEPLOY NOW</a>
+                <a href="#" class="btn" style="background: transparent; color: white; border-color: white;">GITHUB REPO</a>
+            </div>
+        </div>
+        <div class="hero-visual-side">
+            <div class="hero-overlay">
+                SYSTEM STATUS: ONLINE
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--accent); color: black; border-bottom: var(--border); overflow: hidden; white-space: nowrap; padding: 20px 0;">
+        <div class="container text-center" style="font-weight: 900; font-size: 20px; letter-spacing: 1px;">
+            TRUSTED BY 10,000+ DEVELOPERS /// NO REACT /// NO GO /// RUST CORE /// VUE DASHBOARD /// SELF-HOSTABLE ///
+        </div>
+    </section>
+
+    <section class="feature-checkerboard">
+        <div class="checker-text">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">THE PIPELINE</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 30px; color: #666;">
+                We stripped away the complexity. Connect your repo. We detect the Dockerfile. We build it. We proxy it. You sleep.
+            </p>
+            
+            <div style="display: flex; gap: 10px; align-items: center; font-family: monospace;">
+                <div style="border: 2px solid black; padding: 10px;">GIT PUSH</div>
+                <div>-----></div>
+                <div style="background: black; color: white; padding: 10px;">RONIN BUILD</div>
+                <div>-----></div>
+                <div style="border: 2px solid black; padding: 10px;">LIVE URL</div>
+            </div>
+        </div>
+        <div class="checker-img">
+            <img src="https://placehold.co/800x800/222222/FFFFFF?text=TERMINAL+LOGS" alt="Logs">
+        </div>
+    </section>
+
+    <section class="dark-section section-pad" style="border-bottom: var(--border);">
+        <div class="container text-center">
+            <h2 style="font-size: 3rem; margin-bottom: 10px;">MISSION CONTROL</h2>
+            <p style="color: #888;">Built with Vue 3. No React bloat. 60fps animations.</p>
+
+            <div class="browser-mockup">
+                <div class="browser-header">
+                    <div class="browser-dot" style="background: #ff5f56;"></div>
+                    <div class="browser-dot" style="background: #ffbd2e;"></div>
+                    <div class="browser-dot" style="background: #27c93f;"></div>
+                    <span style="margin-left: 10px; color: #666; font-family: monospace; font-size: 12px;">dashboard.ronin.dev</span>
+                </div>
+                <img src="https://placehold.co/1200x700/000000/333333?text=DASHBOARD+UI+%2F%2F+GRAPHS+%2F%2F+LOGS" style="width: 100%; display: block; opacity: 0.8;">
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-checkerboard">
+        <div class="checker-img">
+            <img src="https://placehold.co/800x800/FFEA00/000000?text=RUST+BINARY" alt="Rust Core">
+        </div>
+        <div class="checker-text" style="background: #f4f4f4;">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">RUST UNDER THE HOOD</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 30px; color: #666;">
+                We don't use Go's garbage collector. We manage our own memory. The core engine is written in Rust for maximum safety and speed.
+            </p>
+            <ul style="list-style: none; font-weight: bold; font-family: monospace;">
+                <li style="margin-bottom: 10px;">> ZERO-COPY NETWORKING</li>
+                <li style="margin-bottom: 10px;">> < 50MB RAM USAGE</li>
+                <li style="margin-bottom: 10px;">> INSTANT COLD STARTS</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section-pad dark-section">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 60px;">CHOOSE YOUR PAIN</h2>
+            
+            <table class="compare-table" style="background: black; color: white; border-color: #333;">
+                <thead>
+                    <tr>
+                        <th style="background: #111; color: #888; border-color: #333;">PLATFORM</th>
+                        <th style="background: #111; color: #888; border-color: #333;">VERCEL</th>
+                        <th style="background: #111; color: #888; border-color: #333;">COOLIFY</th>
+                        <th class="ronin-cell" style="background: var(--accent); color: black; border-color: black;">RONIN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-color: #333;"><strong>Tech Stack</strong></td>
+                        <td style="border-color: #333;">Next.js / React</td>
+                        <td style="border-color: #333;">PHP / Laravel</td>
+                        <td class="ronin-cell" style="border-color: black;">Rust / Vue</td>
+                    </tr>
+                    <tr>
+                        <td style="border-color: #333;"><strong>Self-Hosted</strong></td>
+                        <td style="border-color: #333;">No</td>
+                        <td style="border-color: #333;">Yes</td>
+                        <td class="ronin-cell" style="border-color: black;">Yes (1-Click)</td>
+                    </tr>
+                    <tr>
+                        <td style="border-color: #333;"><strong>Vibe</strong></td>
+                        <td style="border-color: #333;">Corporate Memphis</td>
+                        <td style="border-color: #333;">SysAdmin</td>
+                        <td class="ronin-cell" style="border-color: black;">Cyberpunk</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section-pad text-center" style="background: white; color: black;">
+        <div class="container">
+            <h2 style="font-size: clamp(3rem, 6vw, 5rem); line-height: 1;">
+                READY TO <br> <span class="text-highlight">OWN IT?</span>
+            </h2>
+            <p style="font-size: 1.5rem; margin: 30px auto; max-width: 600px;">
+                Join the resistance. Deploy your first container in 30 seconds.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <a href="#" class="btn btn-primary" style="padding: 20px 50px; font-size: 20px;">START FREE</a>
+                <a href="careers.html" class="btn btn-dark" style="padding: 20px 50px; font-size: 20px;">WE ARE HIRING</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: black; color: white; padding: 80px 0 40px; border-top: var(--border);">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: black; border-color: white;">RONIN_</a>
+                    <p style="color: #888; margin-top: 20px;">
+                        The masterless deployment platform. <br>
+                        Built in the shadows.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4 style="color: white;">PRODUCT</h4>
+                    <a href="./features.html" style="color: #888;">Features</a>
+                    <a href="shareholders.html" style="color: #888;">Shareholders</a>
+                    <a href="legal.html" style="color: #888;">Legal</a>
+                </div>
+                <div class="footer-col">
+                    <h4 style="color: white;">CULTURE</h4>
+                    <a href="life.html" style="color: #888;">Manifesto</a>
+                    <a href="careers.html" style="color: #888;">Bounties</a>
+                    <a href="./blog/blog.html" style="color: #888;">Blog</a>
+                </div>
+                <div class="footer-col">
+                    <h4 style="color: white;">CONNECT</h4>
+                    <a href="#" style="color: #888;">GitHub</a>
+                    <a href="#" style="color: #888;">Discord</a>
+                    <a href="#" style="color: #888;">X / Twitter</a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #333; margin-top: 60px; padding-top: 30px; text-align: center; color: #444;">
+                &copy; 2025 RONIN. MIT LICENSED.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

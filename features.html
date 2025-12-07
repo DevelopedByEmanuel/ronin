@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // FEATURES</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- FEATURES SPECIFIC --- */
+        .arsenal-hero {
+            background-color: #0a0a0a;
+            background-image: url('https://placehold.co/1920x800/050505/0a0a0a?text=.');
+            color: white;
+            padding: 120px 0;
+            border-bottom: var(--border);
+            text-align: center;
+        }
+
+        .feature-grid-dense {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1px; /* Gap creates the border effect */
+            background: #333; /* Border color */
+            border: 1px solid #333;
+        }
+
+        .dense-card {
+            background: #000;
+            padding: 40px;
+            transition: 0.3s;
+        }
+
+        .dense-card:hover {
+            background: #111;
+        }
+
+        .dense-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .dense-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .dense-desc {
+            color: #888;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Terminal Mockup */
+        .terminal-block {
+            background: #000;
+            border: 3px solid #333;
+            font-family: monospace;
+            padding: 0;
+            margin-top: 60px;
+            text-align: left;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        .term-header {
+            background: #222;
+            padding: 10px 15px;
+            color: #888;
+            font-size: 12px;
+            border-bottom: 1px solid #333;
+        }
+
+        .term-body {
+            padding: 30px;
+            color: #ccc;
+        }
+
+        .cmd { color: var(--accent); font-weight: bold; }
+        .output { color: #888; display: block; margin-top: 5px; margin-bottom: 15px; }
+        .success { color: #00aa00; font-weight: bold; }
+
+    </style>
+</head>
+<body style="background: #050505;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="color: black;">RONIN_OPS</a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link" style="color: white;">Back Home</a>
+                <a href="careers.html" class="nav-link" style="color: white;">Bounties</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-primary">Start Engine</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="arsenal-hero">
+        <div class="container">
+            <h1 style="font-size: clamp(3rem, 6vw, 6rem); line-height: 0.9;">
+                THE <span class="text-highlight">ARSENAL</span>
+            </h1>
+            <p style="font-size: 1.5rem; max-width: 700px; margin: 30px auto; color: #ccc;">
+                Everything you need to ship. Nothing you don't.
+                <br>No bloat. No AI assistants. Just raw infrastructure.
+            </p>
+        </div>
+    </section>
+
+    <section class="feature-checkerboard">
+        <div class="checker-text" style="background: #000; color: white;">
+            <h2 style="font-size: 3rem; margin-bottom: 20px; color: white;">ZERO-CONFIG PUSH</h2>
+            <p style="font-size: 1.25rem; color: #888; margin-bottom: 30px;">
+                Connect your GitHub repo. We detect your `Dockerfile`, `package.json`, or `Cargo.toml`. We build it. We deploy it. 
+            </p>
+            <ul style="list-style: none; font-family: monospace; font-size: 1.1rem; color: white;">
+                <li style="margin-bottom: 15px;">> AUTO-DETECT FRAMEWORK</li>
+                <li style="margin-bottom: 15px;">> INSTANT CACHE BUILDS</li>
+                <li style="margin-bottom: 15px;">> PREVIEW URLS FOR PRs</li>
+            </ul>
+        </div>
+        <div class="checker-img">
+            <img src="https://placehold.co/800x800/111111/FFEA00?text=GIT+PUSH+-->+LIVE" alt="Git Flow">
+        </div>
+    </section>
+
+    <section class="feature-checkerboard">
+        <div class="checker-img">
+            <img src="https://placehold.co/800x800/000000/FFFFFF?text=RUST+MEMORY+SAFE" alt="Rust Core">
+        </div>
+        <div class="checker-text" style="background: #111; color: white;">
+            <h2 style="font-size: 3rem; margin-bottom: 20px; color: white;">IRONCLAD CORE</h2>
+            <p style="font-size: 1.25rem; color: #888; margin-bottom: 30px;">
+                Our orchestration engine is written in Rust. It consumes < 50MB of RAM. It starts containers in milliseconds. It does not crash.
+            </p>
+            <div style="display: flex; gap: 20px;">
+                <div style="border: 1px solid #444; padding: 20px; text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 900; color: var(--accent);">5ms</div>
+                    <div style="font-size: 0.8rem; color: #888;">COLD START</div>
+                </div>
+                <div style="border: 1px solid #444; padding: 20px; text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 900; color: var(--accent);">0%</div>
+                    <div style="font-size: 0.8rem; color: #888;">PACKET LOSS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pad" style="background: #050505;">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 60px; color: white;">SYSTEM MODULES</h2>
+            
+            <div class="feature-grid-dense">
+                <div class="dense-card">
+                    <span class="dense-icon">🔒</span>
+                    <h3 class="dense-title">Auto SSL</h3>
+                    <p class="dense-desc">
+                        Every deployment gets a free Let's Encrypt certificate. Auto-renewed. Wildcard support included.
+                    </p>
+                </div>
+
+                <div class="dense-card">
+                    <span class="dense-icon">↩️</span>
+                    <h3 class="dense-title">Instant Rollback</h3>
+                    <p class="dense-desc">
+                        Broke production? Click one button to revert to the previous immutable deployment. Zero downtime.
+                    </p>
+                </div>
+
+                <div class="dense-card">
+                    <span class="dense-icon">🌐</span>
+                    <h3 class="dense-title">Edge Proxy</h3>
+                    <p class="dense-desc">
+                        Our C++ reverse proxy routes traffic from the nearest edge node. Lower latency for your users.
+                    </p>
+                </div>
+
+                <div class="dense-card">
+                    <span class="dense-icon">🪵</span>
+                    <h3 class="dense-title">Live Logs</h3>
+                    <p class="dense-desc">
+                        Stream logs in real-time via WebSockets. Grep through history instantly. No more SSH'ing into servers.
+                    </p>
+                </div>
+
+                <div class="dense-card">
+                    <span class="dense-icon">🛡️</span>
+                    <h3 class="dense-title">DDoS Shield</h3>
+                    <p class="dense-desc">
+                        Basic Layer 7 protection included. We rate-limit abusive IPs automatically before they hit your app.
+                    </p>
+                </div>
+
+                <div class="dense-card">
+                    <span class="dense-icon">👥</span>
+                    <h3 class="dense-title">Teams</h3>
+                    <p class="dense-desc">
+                        Invite your co-founders. Set permissions. Share projects. All without per-seat pricing.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-pad" style="background: #000; border-top: var(--border);">
+        <div class="container text-center">
+            <h2 style="color: white; margin-bottom: 20px;">CLI FIRST</h2>
+            <p style="color: #888; max-width: 600px; margin: 0 auto;">
+                You live in the terminal. So do we.
+            </p>
+
+            <div class="terminal-block" style="max-width: 800px; margin: 60px auto;">
+                <div class="term-header">
+                    bash — 80x24
+                </div>
+                <div class="term-body">
+                    <div class="line">
+                        <span class="cmd">$ ronin login</span>
+                        <span class="output">Authenticated as user_0x1A4</span>
+                    </div>
+                    <div class="line">
+                        <span class="cmd">$ ronin init</span>
+                        <span class="output">Detected: Dockerfile. Created ronin.toml</span>
+                    </div>
+                    <div class="line">
+                        <span class="cmd">$ ronin deploy --prod</span>
+                        <span class="output">
+                            > Building container... OK<br>
+                            > Pushing to registry... OK<br>
+                            > Allocating resources... OK<br>
+                            > Routing traffic... OK
+                        </span>
+                        <span class="output success">
+                            DEPLOYMENT SUCCESSFUL<br>
+                            https://api.ronin.app (240ms)
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <a href="#" class="btn btn-primary">INSTALL CLI</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: black; color: white; padding: 80px 0 40px; border-top: var(--border);">
+        <div class="container text-center">
+            <h2 style="color: var(--accent);">EQUIP YOURSELF.</h2>
+            <p style="margin: 20px 0; color: #888;">The tools are ready. The code is yours.</p>
+            <div style="border-top: 1px solid #333; margin-top: 60px; padding-top: 30px; color: #444; font-family: monospace;">
+                &copy; 2025 RONIN.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

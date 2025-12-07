@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // REACT IS LEGACY</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* --- POST SPECIFIC STYLES --- */
+        .post-body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .post-body h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .post-body p { margin-bottom: 30px; }
+
+        .post-body code {
+            background: #222;
+            color: var(--accent);
+            padding: 2px 5px;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        .code-block {
+            background: #111;
+            border: 1px solid #333;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 30px 0;
+            color: #fff;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .comment { color: #666; }
+        .keyword { color: #ff5f56; }
+        .string { color: #27c93f; }
+        .function { color: #ffbd2e; }
+        .variable { color: #5fb3b3; }
+
+        .callout {
+            border: 2px solid #ff5f56; /* Red for controversial take */
+            padding: 30px;
+            background: rgba(255, 95, 86, 0.05);
+            color: white;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body style="background: #0a0a0a;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" style="color: black;">RONIN_COMMS</a>
+            <nav class="nav-menu">
+                <a href="../blog.html" class="nav-link" style="color: white;">All Transmissions</a>
+            </nav>
+        </div>
+    </header>
+
+    <section style="background: url('https://placehold.co/1920x600/000000/111111?text=.') center/cover; padding: 120px 0; border-bottom: var(--border);">
+        <div class="container" style="max-width: 900px; text-align: center;">
+            <div style="font-family: monospace; color: var(--accent); margin-bottom: 20px;">
+                // TRANSMISSION_ID: 002 :: TYPE: RANT
+            </div>
+            <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); color: white; line-height: 1.1; margin-bottom: 30px;">
+                REACT IS THE NEW <span class="text-highlight">JQUERY</span>
+            </h1>
+            <div style="display: flex; justify-content: center; gap: 30px; font-family: monospace; color: #888;">
+                <span>AUTHOR: THE ARCHITECT</span>
+                <span>::</span>
+                <span>DATE: DEC 14, 2025</span>
+                <span>::</span>
+                <span>TIME: 6 MIN READ</span>
+            </div>
+        </div>
+    </section>
+
+    <article class="post-body">
+        
+        <p class="lead" style="font-size: 1.5rem; color: white; font-weight: bold;">
+            In 2013, React was a revolution. It saved us from the spaghetti code of manual DOM manipulation. But in 2025, it has become the very thing it sought to destroy: Bloated, complex, and slow.
+        </p>
+
+        <p>
+            When we started building the Ronin Dashboard, the default choice was Next.js. We built the prototype in a week. It looked great. Then we looked at the bundle size. Then we looked at the re-render cycles. Then we threw it in the trash.
+        </p>
+
+        <h2>1. The Virtual DOM Tax</h2>
+        <p>
+            The Virtual DOM was a brilliant hack for 2013 browsers. Today, it is pure overhead. 
+        </p>
+        <p>
+            Every time a state changes in React, the engine has to re-generate the entire component tree, compare it to the old tree (diffing), and then patch the real DOM. It is <strong>O(n)</strong> work for <strong>O(1)</strong> change.
+        </p>
+        <p>
+            We switched to <strong>Vue 3</strong> (and looked at SolidJS) because they use a different model: <strong>Dependency Tracking</strong>.
+        </p>
+
+        <div class="callout">
+            <h3>THE DIFFERENCE</h3>
+            <p>
+                <strong>React:</strong> "Something changed. I will re-run this entire function to figure out what."<br>
+                <strong>Vue/Signals:</strong> "I know exactly which text node relies on this variable. I will update only that text node."
+            </p>
+        </div>
+
+        <h2>2. useEffect is a Footgun</h2>
+        <p>
+            If you have worked in a large React codebase, you have seen the horror. Infinite loops because an object reference changed. Stale closures. The "Rules of Hooks" that feel like arbitrary laws of physics.
+        </p>
+        <p>
+            Here is the code required to simply log a variable when it changes in React vs Vue:
+        </p>
+
+        <div class="code-block">
+            <span class="comment">// React: The Ceremony</span><br>
+            <span class="keyword">useEffect</span>(() => {<br>
+            &nbsp;&nbsp;console.log(count);<br>
+            }, [count]); <span class="comment">// Don't forget the dependency array or you die</span><br>
+            <br>
+            <span class="comment">// Vue: The Reality</span><br>
+            <span class="keyword">watch</span>(count, () => console.log(count.value));
+        </div>
+
+        <p>
+            One treats you like a compiler. The other treats you like a human.
+        </p>
+
+        <h2>3. Performance by Default</h2>
+        <p>
+            In React, performance optimization is manual labor. You wrap things in <code>useMemo</code>, <code>useCallback</code>, and <code>React.memo</code>. You spend hours debugging "why did this component render 400 times?"
+        </p>
+        <p>
+            In Ronin's dashboard, we stream live logs from thousands of containers via WebSockets. In React, managing that state at 60fps required external libraries and massive optimization. 
+        </p>
+        <p>
+            In Vue, the reactivity system handles it natively. The proxy-based observation system is surgically precise.
+        </p>
+
+        <h2>4. The Verdict</h2>
+        <p>
+            React is the new jQuery. It was necessary. It changed the web. But its time as the "default" for high-performance applications is over.
+        </p>
+        <p>
+            We chose Vue 3 and Nuxt not because we are contrarians, but because we value <strong>CPU cycles</strong> over <strong>Hype cycles</strong>.
+        </p>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 60px 0;">
+
+        <h3>AGREE? DISAGREE?</h3>
+        <p>
+            If you love React, that's fine. You can still deploy React apps on Ronin. We just won't use it to build Ronin.
+        </p>
+        
+        <a href="../careers.html" class="btn btn-primary" style="margin-top: 20px;">JOIN THE VUE SQUAD</a>
+
+    </article>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. END OF TRANSMISSION.</p>
+    </footer>
+
+</body>
+</html>

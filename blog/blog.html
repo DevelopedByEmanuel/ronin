@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // TRANSMISSIONS</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* --- BLOG SPECIFIC STYLES --- */
+        .blog-hero {
+            background-color: #0a0a0a;
+            background-image: url('https://placehold.co/1920x600/050505/0a0a0a?text=.');
+            color: white;
+            padding: 100px 0;
+            border-bottom: var(--border);
+        }
+
+        /* Featured Post (The Big One) */
+        .featured-wrapper {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            border-bottom: var(--border);
+            min-height: 500px;
+        }
+
+        .featured-content {
+            background: #000;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: var(--border);
+        }
+
+        .featured-visual {
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .featured-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.2);
+            transition: 0.5s;
+        }
+
+        .featured-wrapper:hover .featured-visual img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .post-meta {
+            font-family: monospace;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Standard Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 0;
+            background: #333; /* Border color */
+            border: 1px solid #333;
+        }
+
+        .post-card {
+            background: #050505;
+            padding: 40px;
+            border: 1px solid #222;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 350px;
+        }
+
+        .post-card:hover {
+            background: #000;
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .post-title {
+            font-size: 1.8rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .post-excerpt {
+            color: #888;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .read-link {
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .read-link::after {
+            content: '->';
+            color: var(--accent);
+            transition: 0.2s;
+        }
+
+        .post-card:hover .read-link::after {
+            transform: translateX(5px);
+        }
+
+        /* Subscribe Box */
+        .sub-box {
+            border: 3px solid white;
+            padding: 60px;
+            text-align: center;
+            background: var(--accent);
+            color: black;
+            margin-top: 80px;
+        }
+
+        .sub-input {
+            padding: 15px;
+            font-size: 18px;
+            border: 3px solid black;
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            margin-right: 10px;
+            font-family: monospace;
+        }
+
+        @media (max-width: 900px) {
+            .featured-wrapper { grid-template-columns: 1fr; }
+            .featured-content { border-right: none; border-bottom: var(--border); }
+            .featured-visual { height: 300px; }
+        }
+    </style>
+</head>
+<body style="background: #0a0a0a;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="color: black;">RONIN_COMMS</a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link" style="color: white;">Back Home</a>
+                <a href="careers.html" class="nav-link" style="color: white;">Bounties</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="blog-hero">
+        <div class="container">
+            <h1 style="font-size: clamp(3rem, 6vw, 6rem);">INCOMING <br> <span class="text-highlight">TRANSMISSIONS</span></h1>
+            <p style="font-size: 1.25rem; color: #999; margin-top: 20px; max-width: 600px; border-left: 2px solid var(--accent); padding-left: 20px;">
+                Engineering deep dives, architectural decisions, and rants against the cloud industrial complex.
+            </p>
+        </div>
+    </section>
+
+    <section class="featured-wrapper">
+        <div class="featured-content">
+            <div class="post-meta">
+                <span>:: LATEST SIGNAL</span>
+                <span>:: DEC 12, 2025</span>
+                <span>:: ENGINEERING</span>
+            </div>
+            <h2 style="font-size: 3rem; color: white; margin-bottom: 20px; line-height: 1;">
+                WHY WE REWROTE THE CORE ENGINE IN RUST
+            </h2>
+            <p style="font-size: 1.2rem; color: #ccc; margin-bottom: 40px; line-height: 1.6;">
+                We migrated 50,000 lines of Go to Rust. The result? 40% less memory usage, zero runtime panics, and a 200% increase in developer happiness (after the borrow checker PTSD wore off).
+            </p>
+            <a href="#" class="btn btn-primary" style="align-self: flex-start;">READ FULL REPORT</a>
+        </div>
+        <div class="featured-visual">
+            <img src="https://placehold.co/800x800/111111/FFEA00?text=RUST+vs+GO" alt="Rust vs Go">
+            <div style="position: absolute; bottom: 20px; right: 20px; background: black; color: white; padding: 5px 10px; font-family: monospace;">
+                ID: A-042
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pad">
+        <div class="container">
+            <div style="margin-bottom: 40px; display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #333; padding-bottom: 20px;">
+                <h3 style="color: white; font-size: 2rem;">ARCHIVE</h3>
+                <div style="font-family: monospace; color: #666;">FILTER: [ALL] [RANT] [CODE]</div>
+            </div>
+
+            <div class="blog-grid">
+                
+                <div class="post-card">
+                    <div>
+                        <div class="post-meta">
+                            <span style="color: #666;">// RANT</span>
+                            <span>5 MIN READ</span>
+                        </div>
+                        <h3 class="post-title">The Vercel Tax: Paying for Air</h3>
+                        <p class="post-excerpt">
+                            Serverless functions are great until you hit scale. Then you realize you're paying a 500% markup for AWS Lambda wrappers. Here is the math.
+                        </p>
+                    </div>
+                    <a href="./posts/post6.html" class="read-link">DECRYPT FILE</a>
+                </div>
+
+                <div class="post-card">
+                    <div>
+                        <div class="post-meta">
+                            <span style="color: #666;">// TUTORIAL</span>
+                            <span>12 MIN READ</span>
+                        </div>
+                        <h3 class="post-title">Zero-Copy Networking with io_uring</h3>
+                        <p class="post-excerpt">
+                            How we achieved 10gbps throughput on a single core using asynchronous I/O and modern Linux kernel features. Warning: Contains C code.
+                        </p>
+                    </div>
+                    <a href="./posts/post2.html" class="read-link">DECRYPT FILE</a>
+                </div>
+
+                <div class="post-card">
+                    <div>
+                        <div class="post-meta">
+                            <span style="color: #666;">// UPDATE</span>
+                            <span>3 MIN READ</span>
+                        </div>
+                        <h3 class="post-title">Ronin v2.1: The "Kill Switch" Update</h3>
+                        <p class="post-excerpt">
+                            We added a panic button for developers. If your API gets DDOS'd, one CLI command instantly severs the connection and rotates your keys.
+                        </p>
+                    </div>
+                    <a href="./posts/post3.html" class="read-link">DECRYPT FILE</a>
+                </div>
+
+                <div class="post-card">
+                    <div>
+                        <div class="post-meta">
+                            <span style="color: #666;">// CULTURE</span>
+                            <span>8 MIN READ</span>
+                        </div>
+                        <h3 class="post-title">Why We Banned Slack</h3>
+                        <p class="post-excerpt">
+                            Real-time chat is an interruption factory. We switched to async-only communication and our shipping velocity doubled.
+                        </p>
+                    </div>
+                    <a href="./posts/post4.html" class="read-link">DECRYPT FILE</a>
+                </div>
+
+                <div class="post-card">
+                    <div>
+                        <div class="post-meta">
+                            <span style="color: #666;">// RANT</span>
+                            <span>6 MIN READ</span>
+                        </div>
+                        <h3 class="post-title">React is the new jQuery</h3>
+                        <p class="post-excerpt">
+                            It was revolutionary in 2013. Now it's 2025. Virtual DOM overhead is real. It's time to move on to signals and fine-grained reactivity.
+                        </p>
+                    </div>
+                    <a href="./posts/post5.html" class="read-link">DECRYPT FILE</a>
+                </div>
+
+                <div class="post-card">
+                    <div>
+                        <div class="post-meta">
+                            <span style="color: #666;">// CASE STUDY</span>
+                            <span>15 MIN READ</span>
+                        </div>
+                        <h3 class="post-title">Scaling to 10k Nodes on Raspberry Pis</h3>
+                        <p class="post-excerpt">
+                            We built a global edge network using consumer hardware just to prove it could be done. Here is the architecture diagram.
+                        </p>
+                    </div>
+                    <a href="./posts/post1.html" class="read-link">DECRYPT FILE</a>
+                </div>
+
+                <div class="post-card">
+                    <div>
+                        <div class="post-meta">
+                            <span style="color: #666;">// SECURITY</span>
+                            <span>9 MIN READ</span>
+                        </div>
+                        <h3 class="post-title">The Myth of "Air-Gapped" Networks</h3>
+                        <p class="post-excerpt">
+                            We tried to build a truly offline build server. Then we found out about acoustic cryptanalysis. Here is how we hardened our physical infrastructure.
+                        </p>
+                    </div>
+                    <a href="./posts/post9.html" class="read-link">DECRYPT FILE</a>
+                </div>
+
+                <div class="post-card">
+                    <div>
+                        <div class="post-meta">
+                            <span style="color: #666;">// HARDWARE</span>
+                            <span>4 MIN READ</span>
+                        </div>
+                        <h3 class="post-title">Why We Bought 50 Used Mac Minis</h3>
+                        <p class="post-excerpt">
+                            AWS Mac instances cost $1/hour. eBay Mac Minis cost $200 once. We built our own CI/CD farm for iOS builds and saved $40k/year.
+                        </p>
+                    </div>
+                    <a href="./posts/post8.html" class="read-link">DECRYPT FILE</a>
+                </div>
+
+                <div class="post-card">
+                    <div>
+                        <div class="post-meta">
+                            <span style="color: #666;">// PHILOSOPHY</span>
+                            <span>7 MIN READ</span>
+                        </div>
+                        <h3 class="post-title">Delete Your Backlog</h3>
+                        <p class="post-excerpt">
+                            If a ticket has been in Jira for more than 3 months, you aren't going to do it. Delete it. Free your mind. Focus on what matters today.
+                        </p>
+                    </div>
+                    <a href="./posts/post7.html" class="read-link">DECRYPT FILE</a>
+                </div>
+
+            </div>
+
+            <div class="sub-box">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">JOIN THE FREQUENCY</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                    We send one email a week. No spam. No marketing fluff. Just code and chaos.
+                </p>
+                <form style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+                    <input type="email" placeholder="ENTER_EMAIL_ADDRESS" class="sub-input">
+                    <button class="btn btn-dark" style="padding: 15px 30px; font-size: 18px;">SUBSCRIBE</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. END OF LINE.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // THE MYTH OF AIR GAPS</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* --- POST SPECIFIC STYLES --- */
+        .post-body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .post-body h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .post-body p { margin-bottom: 30px; }
+
+        .callout {
+            border: 2px solid #ff5f56;
+            padding: 30px;
+            background: rgba(255, 95, 86, 0.05);
+            color: white;
+            margin: 40px 0;
+        }
+
+        .checklist-box {
+            background: #111;
+            border: 1px solid #333;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+
+        .check-box {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body style="background: #0a0a0a;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" style="color: black;">RONIN_COMMS</a>
+            <nav class="nav-menu">
+                <a href="../blog.html" class="nav-link" style="color: white;">All Transmissions</a>
+            </nav>
+        </div>
+    </header>
+
+    <section style="background: url('https://placehold.co/1920x600/000000/111111?text=.') center/cover; padding: 120px 0; border-bottom: var(--border);">
+        <div class="container" style="max-width: 900px; text-align: center;">
+            <div style="font-family: monospace; color: var(--accent); margin-bottom: 20px;">
+                // TRANSMISSION_ID: 009 :: TYPE: SECURITY
+            </div>
+            <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); color: white; line-height: 1.1; margin-bottom: 30px;">
+                THE MYTH OF <br> <span class="text-highlight">AIR-GAPPED</span> NETWORKS
+            </h1>
+            <div style="display: flex; justify-content: center; gap: 30px; font-family: monospace; color: #888;">
+                <span>AUTHOR: SEC_OPS</span>
+                <span>::</span>
+                <span>DATE: JAN 10, 2026</span>
+                <span>::</span>
+                <span>TIME: 9 MIN READ</span>
+            </div>
+        </div>
+    </section>
+
+    <article class="post-body">
+        
+        <p class="lead" style="font-size: 1.5rem; color: white; font-weight: bold;">
+            We needed to generate the Root CA keys for Ronin's internal signing infrastructure. This is the "Crown Jewels" of our security. If these keys leak, we are dead.
+        </p>
+
+        <p>
+            The standard procedure is simple: Buy a laptop. Never connect it to the internet. Generate keys. Store in a safe. We thought that was enough. Then we read the research papers on <strong>Acoustic Cryptanalysis</strong>.
+        </p>
+
+        <h2>1. Computers Scream</h2>
+        <p>
+            You think your computer is silent? It isn't. The CPU voltage regulators vibrate (coil whine). The fans spin at specific frequencies. 
+        </p>
+        <p>
+            Researchers have proven that malware can infect an air-gapped computer (via a USB drive) and then exfiltrate data by modulating the speed of the cooling fans to transmit ultrasonic sound waves. A nearby smartphone can "hear" these waves and decode the private keys.
+        </p>
+        <p>
+            The data transfer rate is slow (bit per hour), but keys are small.
+        </p>
+
+        <div class="callout">
+            <h3>THE REALIZATION</h3>
+            <p>
+                An "Air Gap" (disconnecting the network cable) protects you from hackers in Russia. It does not protect you from a compromised supply chain and a microphone in the room.
+            </p>
+        </div>
+
+        <h2>2. Physical Hardening Protocol</h2>
+        <p>
+            We realized we couldn't just use a MacBook off the shelf. We had to perform surgery.
+        </p>
+        <p>
+            We bought an old ThinkPad T440p (the tank of laptops) and took it to the workbench. Here is what we removed:
+        </p>
+
+        <div class="checklist-box">
+            <div class="check-item"><div class="check-box">X</div> REMOVED: Wi-Fi Card (Physical extraction)</div>
+            <div class="check-item"><div class="check-box">X</div> REMOVED: Bluetooth Module</div>
+            <div class="check-item"><div class="check-box">X</div> REMOVED: Microphone (Desoldered)</div>
+            <div class="check-item"><div class="check-box">X</div> REMOVED: Speakers (Wires cut)</div>
+            <div class="check-item"><div class="check-box">X</div> REMOVED: Webcam (Physically destroyed)</div>
+            <div class="check-item"><div class="check-box">X</div> FILLED: Ethernet/USB ports with epoxy</div>
+        </div>
+
+        <h2>3. The Faraday Cage</h2>
+        <p>
+            Sound isn't the only vector. <strong>Tempest attacks</strong> can read the electromagnetic radiation emitted by your monitor cable from across the street.
+        </p>
+        <p>
+            We built a Faraday Cage in the basement of our Travnik HQ. It is essentially a copper-mesh tent grounded to the building's water pipe. 
+        </p>
+        <p>
+            When we need to sign a new intermediate certificate, two senior engineers enter the cage. They leave their phones outside. They use a fresh, verified USB stick to transfer the request. They sign it. They destroy the USB stick.
+        </p>
+
+        <h2>4. Is This Overkill?</h2>
+        <p>
+            Probably. We are a deployment platform, not the NSA.
+        </p>
+        <p>
+            But security is a mindset. If we are this paranoid about our internal keys, imagine how paranoid we are about <em>your</em> keys.
+        </p>
+        <p>
+            We don't trust "Software Isolation." We trust Physics.
+        </p>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 60px 0;">
+
+        <h3>WE TAKE SECURITY SERIOUSLY</h3>
+        <p>
+            Your environment variables are encrypted at rest using keys generated in that basement.
+        </p>
+        
+        <a href="../../index.html" class="btn btn-primary" style="margin-top: 20px;">DEPLOY SECURELY</a>
+
+    </article>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. TRUST NO ONE.</p>
+    </footer>
+
+</body>
+</html>

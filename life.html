@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // LIFE</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- PAGE SPECIFIC STYLES --- */
+        .life-hero {
+            background-image: url('https://placehold.co/1920x600/000000/111111?text=.'); /* Texture feel */
+            padding: 120px 0;
+            color: white;
+            border-bottom: var(--border);
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            border: var(--border);
+        }
+
+        .visual-item {
+            position: relative;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        .visual-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            filter: grayscale(100%);
+        }
+
+        .visual-item:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .visual-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: var(--accent);
+            color: black;
+            padding: 10px 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 20px;
+            border-top: 3px solid black;
+            border-right: 3px solid black;
+        }
+
+        .manifesto-block {
+            padding: 60px;
+            background: white;
+            border-bottom: 2px solid black;
+        }
+
+        .gear-section {
+            background: #111;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        .stat-item h3 { font-size: 48px; color: var(--accent); margin-bottom: 0; }
+        .stat-item p { font-size: 14px; color: #888; }
+
+        @media (max-width: 768px) {
+            .visual-grid { grid-template-columns: 1fr; }
+            .stat-row { flex-direction: column; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">RONIN_LIFE</a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Back Home</a>
+                <a href="careers.html" class="nav-link">Join the Ranks</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="life-hero">
+        <div class="container">
+            <h1 style="font-size: clamp(3rem, 6vw, 5rem); line-height: 1;">
+                THE OFFICE <br> IS <span class="text-highlight">DEAD.</span>
+            </h1>
+            <p style="font-size: 1.5rem; max-width: 600px; margin-top: 30px; border-left: 4px solid var(--accent); padding-left: 20px;">
+                We traded cubicles for cabins. We traded commutes for deadlifts. We traded politics for pull requests.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <div class="visual-grid">
+            <div class="visual-item">
+                <img src="https://placehold.co/800x600/111111/FFEA00?text=NO+SUITS" alt="No Suits">
+                <div class="visual-overlay">Rule #1: The Uniform</div>
+            </div>
+            <div class="manifesto-block">
+                <h3>WE DON'T DRESS TO IMPRESS.</h3>
+                <p style="font-size: 18px; margin-top: 20px; line-height: 1.6;">
+                    If you wear a suit to a video call, we assume you are selling something we don't want. Hoodie, t-shirt, pajama bottoms—we don't care. Judge a developer by their git history, not their tie.
+                </p>
+            </div>
+
+            <div class="manifesto-block" style="background: var(--accent);">
+                <h3>GLOBAL ASYNC.</h3>
+                <p style="font-size: 18px; margin-top: 20px; line-height: 1.6; font-weight: bold;">
+                    Work when you are alive. Sleep when you are tired.
+                </p>
+                <p style="margin-top: 10px;">
+                    Our team spans 12 timezones. We don't have a "9 to 5". We have "The Flow". If you code best at 3 AM in Tokyo, do it. Just push your commits before you pass out.
+                </p>
+            </div>
+            <div class="visual-item">
+                <img src="https://placehold.co/800x600/000000/FFFFFF?text=TOKYO+%2F%2F+BERLIN+%2F%2F+TRAVNIK" alt="Global Map">
+                <div class="visual-overlay">Rule #2: No Timezones</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gear-section border-bottom">
+        <div class="container">
+            <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap; gap: 20px;">
+                <h2 style="font-size: 3rem;">TOOLS OF <br><span style="color: var(--accent);">THE TRADE</span></h2>
+                <p style="max-width: 400px; text-align: right; color: #ccc;">
+                    You cannot build a cathedral with a plastic hammer. We provide the budget. You build the battle station.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <div class="card" style="background: #222; border-color: #444; color: white;">
+                    <img src="https://placehold.co/400x250/000000/FFEA00?text=SILICON" style="width: 100%; border-bottom: 2px solid #444;">
+                    <div style="padding: 20px;">
+                        <h4>$4,000 HARDWARE BUDGET</h4>
+                        <p style="color: #999; font-size: 14px; margin-top: 10px;">
+                            M3 Max? Threadripper? It's your call. Every 2 years, you get a refresh. Keep the old one.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card" style="background: #222; border-color: #444; color: white;">
+                    <img src="https://placehold.co/400x250/000000/FFEA00?text=ERGONOMICS" style="width: 100%; border-bottom: 2px solid #444;">
+                    <div style="padding: 20px;">
+                        <h4>HOME OFFICE STIPEND</h4>
+                        <p style="color: #999; font-size: 14px; margin-top: 10px;">
+                            Herman Miller chairs and mechanical keyboards are not luxuries. They are health insurance for your spine and wrists.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card" style="background: #222; border-color: #444; color: white;">
+                    <img src="https://placehold.co/400x250/000000/FFEA00?text=IRON" style="width: 100%; border-bottom: 2px solid #444;">
+                    <div style="padding: 20px;">
+                        <h4>GYM & WELLNESS</h4>
+                        <p style="color: #999; font-size: 14px; margin-top: 10px;">
+                            We pay 100% of your gym membership. We don't want burnt-out coders. We want absolute units.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pad">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div>
+                    <img src="https://placehold.co/600x600/FFEA00/000000?text=THE+RETREAT" style="width: 100%; border: 3px solid black; box-shadow: 10px 10px 0 black;">
+                </div>
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 20px;">THE CONVERGENCE</h2>
+                    <p style="font-size: 18px; margin-bottom: 20px;">
+                        Once a year, we shut down Slack. We fly everyone to a remote location (Swiss Alps, Bosnian Mountains, Icelandic Tundra).
+                    </p>
+                    <p style="font-size: 18px; margin-bottom: 30px;">
+                        We don't do trust falls. We don't do PowerPoint presentations.
+                    </p>
+                    <ul style="list-style: none; font-weight: bold; font-family: monospace; font-size: 18px;">
+                        <li style="margin-bottom: 10px;">> WE COOK.</li>
+                        <li style="margin-bottom: 10px;">> WE LIFT.</li>
+                        <li style="margin-bottom: 10px;">> WE SHIP A HACKATHON PROJECT.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pad border-top" style="background: #fafafa;">
+        <div class="container">
+            <h2 class="text-center">VITAL SIGNS</h2>
+            <div class="stat-row">
+                <div class="stat-item text-center">
+                    <h3>100%</h3>
+                    <p>REMOTELY DISTRIBUTED</p>
+                </div>
+                <div class="stat-item text-center">
+                    <h3>32</h3>
+                    <p>COUNTRIES REPRESENTED</p>
+                </div>
+                <div class="stat-item text-center">
+                    <h3>0</h3>
+                    <p>HOURS SPENT COMMUTING</p>
+                </div>
+                <div class="stat-item text-center">
+                    <h3>$0</h3>
+                    <p>SPENT ON MIDDLE MANAGEMENT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-top text-center" style="padding: 60px 0; background: black; color: white;">
+        <h2 style="color: var(--accent);">ARE YOU READY?</h2>
+        <p style="margin: 20px 0; color: #999;">The rebellion is hiring.</p>
+        <a href="careers.html" class="btn btn-primary">VIEW OPEN BOUNTIES</a>
+    </footer>
+
+</body>
+</html>
