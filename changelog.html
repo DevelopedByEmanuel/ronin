@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // CHANGELOG</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* --- CHANGELOG STYLES --- */
+        .changelog-header {
+            padding: 100px 0 60px;
+            border-bottom: 1px solid #333;
+            background: #0a0a0a;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* The vertical line */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50px;
+            width: 1px;
+            background: #333;
+        }
+
+        .release-block {
+            margin-bottom: 80px;
+            position: relative;
+            padding-left: 80px;
+        }
+
+        /* The Version Dot */
+        .version-dot {
+            position: absolute;
+            left: 44px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            background: #000;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .release-date {
+            font-family: monospace;
+            color: #666;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 14px;
+        }
+
+        .version-title {
+            font-size: 2.5rem;
+            color: white;
+            line-height: 1;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 4px 8px;
+            background: #222;
+            color: #ccc;
+            font-family: monospace;
+            border: 1px solid #444;
+            vertical-align: middle;
+        }
+
+        .tag.major { background: rgba(255, 234, 0, 0.1); border-color: var(--accent); color: var(--accent); }
+
+        .change-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .change-item {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #ccc;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            line-height: 1.6;
+        }
+
+        .type-badge {
+            font-family: monospace;
+            font-size: 12px;
+            padding: 2px 6px;
+            min-width: 60px;
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        .type-feat { color: var(--accent); border: 1px solid var(--accent); }
+        .type-fix { color: #ff5f56; border: 1px solid #ff5f56; }
+        .type-perf { color: #5fb3b3; border: 1px solid #5fb3b3; }
+
+        .commit-hash {
+            color: #444;
+            font-family: monospace;
+            font-size: 12px;
+            margin-left: auto;
+        }
+
+        /* Diff Box */
+        .diff-box {
+            background: #080808;
+            border: 1px solid #222;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+        }
+        .diff-add { color: #27c93f; }
+        .diff-rem { color: #ff5f56; }
+
+    </style>
+</head>
+<body style="background: #0a0a0a;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="color: black;">RONIN_LOGS</a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link" style="color: white;">Home</a>
+                <a href="docs.html" class="nav-link" style="color: white;">Docs</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="changelog-header">
+        <div class="container" style="max-width: 800px;">
+            <h1 style="font-size: 4rem; color: white; margin-bottom: 20px;">CHANGELOG</h1>
+            <p style="color: #888; font-size: 1.2rem;">
+                We ship on Fridays. Breaking changes are marked in <span style="color: #ff5f56;">RED</span>.
+            </p>
+        </div>
+    </section>
+
+    <div class="timeline">
+
+        <div class="release-block">
+            <div class="version-dot"></div>
+            <span class="release-date">JAN 12, 2026</span>
+            <h2 class="version-title">
+                v2.1.0 
+                <span class="tag major">STABLE</span>
+            </h2>
+            
+            <p style="color: #ccc; margin-bottom: 30px;">
+                The "Kill Switch" update. Introduced emergency shutdown protocols and automated key rotation for compromised endpoints.
+            </p>
+
+            <ul class="change-list">
+                <li class="change-item">
+                    <span class="type-badge type-feat">NEW</span>
+                    <span>Added <code>ronin kill</code> CLI command for instant traffic severance.</span>
+                    <span class="commit-hash">8a2f9c</span>
+                </li>
+                <li class="change-item">
+                    <span class="type-badge type-feat">NEW</span>
+                    <span>Added <code>--rotate-keys</code> flag to invalidate .env secrets instantly.</span>
+                    <span class="commit-hash">4b1d3e</span>
+                </li>
+                <li class="change-item">
+                    <span class="type-badge type-fix">FIX</span>
+                    <span>Fixed memory leak in the WebSocket hearbeat monitor.</span>
+                    <span class="commit-hash">9c3a1b</span>
+                </li>
+            </ul>
+
+            <div class="diff-box">
+                <span class="diff-add">+ fn initiate_lockdown(target: &str) -> Result&lt;(), Error&gt;</span><br>
+                <span class="diff-rem">- // TODO: Implement panic button</span>
+            </div>
+        </div>
+
+        <div class="release-block">
+            <div class="version-dot" style="background: #000; border-color: #444;"></div>
+            <span class="release-date">DEC 28, 2025</span>
+            <h2 class="version-title">v2.0.5</h2>
+            
+            <ul class="change-list">
+                <li class="change-item">
+                    <span class="type-badge type-perf">PERF</span>
+                    <span>Migrated internal message bus from JSON to Protobuf. 40% reduction in CPU overhead.</span>
+                    <span class="commit-hash">7d12f4</span>
+                </li>
+                <li class="change-item">
+                    <span class="type-badge type-fix">FIX</span>
+                    <span>Resolved race condition in Docker image cache during parallel builds.</span>
+                    <span class="commit-hash">2a9c8d</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="release-block">
+            <div class="version-dot" style="background: var(--accent);"></div>
+            <span class="release-date">DEC 10, 2025</span>
+            <h2 class="version-title">
+                v2.0.0 
+                <span class="tag major">MAJOR REWRITE</span>
+            </h2>
+            
+            <p style="color: #ccc; margin-bottom: 30px;">
+                Complete rewrite of the Proxy layer from Go to Rust. Introduced <code>io_uring</code> support for zero-copy networking.
+            </p>
+
+            <ul class="change-list">
+                <li class="change-item">
+                    <span class="type-badge type-feat">CORE</span>
+                    <span>Replaced NGINX with custom Rust reverse proxy.</span>
+                </li>
+                <li class="change-item">
+                    <span class="type-badge type-feat">NEW</span>
+                    <span>Added support for gRPC streaming.</span>
+                </li>
+                <li class="change-item">
+                    <span class="type-badge type-perf">PERF</span>
+                    <span>10gbps throughput achieved on single-core instances.</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. VELOCITY IS SECURITY.</p>
+    </footer>
+
+</body>
+</html>

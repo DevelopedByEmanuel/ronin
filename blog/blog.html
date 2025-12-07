@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="../style.css">
     <style>
         /* --- BLOG SPECIFIC STYLES --- */
+        body {
+            background-color: #0a0a0a;
+            color: #ccc;
+        }
+
         .blog-hero {
             background-color: #0a0a0a;
             background-image: url('https://placehold.co/1920x600/050505/0a0a0a?text=.');
@@ -15,7 +20,7 @@
             border-bottom: var(--border);
         }
 
-        /* Featured Post (The Big One) */
+        /* Featured Post */
         .featured-wrapper {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
@@ -63,25 +68,26 @@
             gap: 20px;
         }
 
-        /* Standard Grid */
+        /* --- GRID FIX START --- */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 0;
-            background: #333; /* Border color */
-            border: 1px solid #333;
+            gap: 20px; /* Added gap so empty spaces are invisible */
+            background: transparent; /* Removed grey background */
+            border: none; /* Removed container border */
         }
 
         .post-card {
             background: #050505;
             padding: 40px;
-            border: 1px solid #222;
+            border: 1px solid #222; /* Cards define their own border */
             transition: 0.3s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             min-height: 350px;
         }
+        /* --- GRID FIX END --- */
 
         .post-card:hover {
             background: #000;
@@ -156,10 +162,10 @@
 
     <header style="background: black; border-bottom: 1px solid #333;">
         <div class="container nav-container">
-            <a href="../../index.html" class="logo" style="color: black;">RONIN_COMMS</a>
+            <a href="../index.html" class="logo" style="color: black;">RONIN_COMMS</a>
             <nav class="nav-menu">
-                <a href="index.html" class="nav-link" style="color: white;">Back Home</a>
-                <a href="careers.html" class="nav-link" style="color: white;">Bounties</a>
+                <a href="../index.html" class="nav-link" style="color: white;">Back Home</a>
+                <a href="../careers.html" class="nav-link" style="color: white;">Bounties</a>
             </nav>
         </div>
     </header>
@@ -204,7 +210,35 @@
             </div>
 
             <div class="blog-grid">
+
+                <div class="post-card">
+                    <div>
+                        <div class="post-meta">
+                            <span style="color: #666;">// HARDWARE_MOD</span>
+                            <span>6 MIN READ</span>
+                        </div>
+                        <h3 class="post-title">VOIDING WARRANTIES FOR BETTER IOPS</h3>
+                        <p class="post-excerpt">
+                            The sticker on your NVMe drive says "Warranty Void if Removed." We remove it anyway. That sticker is a thermal insulator, and in high-performance computing, heat is the enemy of speed.
+                        </p>
+                    </div>
+                    <a href="./posts/post11.html" class="read-link">DECRYPT FILE</a>
+                </div>
                 
+                <div class="post-card">
+                    <div>
+                        <div class="post-meta">
+                            <span style="color: #666;">// ENGINEERING</span>
+                            <span>8 MIN READ</span>
+                        </div>
+                        <h3 class="post-title">Surgery on a Beating Heart</h3>
+                        <p class="post-excerpt">
+                            How we migrated 500GB of live production data to NVMe arrays without a single second of downtime.
+                        </p>
+                    </div>
+                    <a href="./posts/post10.html" class="read-link">DECRYPT FILE</a>
+                </div>
+
                 <div class="post-card">
                     <div>
                         <div class="post-meta">
@@ -347,8 +381,8 @@
         </div>
     </section>
 
-    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
-        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. END OF LINE.</p>
+    <footer style="background-color: #000 !important; border-top: 1px solid #333; padding: 60px 0; text-align: center; color: #666 !important;">
+        <p style="font-family: monospace; margin: 0;">&copy; 2025 RONIN. END OF LINE.</p>
     </footer>
 
 </body>

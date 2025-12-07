@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // VOIDING WARRANTIES</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* --- POST SPECIFIC STYLES --- */
+        body {
+            background-color: #050505 !important;
+            color: #ccc !important;
+            line-height: 1.8;
+        }
+
+        .post-hero {
+            position: relative;
+            padding: 120px 0;
+            border-bottom: 1px solid #333;
+            background-image: url('https://placehold.co/1920x600/080808/111111?text=HARDWARE_MODS');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .post-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(5,5,5,0.8), #050505);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .post-body {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            font-size: 1.15rem;
+        }
+
+        .post-body h2 {
+            font-size: 2rem;
+            color: white;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .post-body h2::before {
+            content: '#';
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 1.5rem;
+        }
+
+        .post-body p { margin-bottom: 30px; }
+
+        .post-body code {
+            background: #1a1a1a;
+            color: var(--accent);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            border: 1px solid #333;
+        }
+
+        .code-block {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 25px;
+            overflow-x: auto;
+            margin: 40px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #ddd;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .comment { color: #666; font-style: italic; }
+        .keyword { color: #ff5f56; font-weight: bold; }
+        .string { color: #27c93f; }
+
+        .callout {
+            border-left: 4px solid #ff5f56;
+            background: rgba(255, 95, 86, 0.05);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout h3 {
+            color: #ff5f56;
+            margin-top: 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* IMAGE STYLES */
+        figure {
+            margin: 40px 0;
+            border: 1px solid #333;
+            background: #080808;
+        }
+
+        figure img {
+            width: 100%;
+            display: block;
+            opacity: 0.9;
+        }
+
+        figcaption {
+            padding: 15px;
+            text-align: center;
+            color: #888;
+            font-family: monospace;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+            font-style: italic;
+        }
+
+        .thermal-stack {
+            border: 1px solid #333;
+            padding: 40px;
+            margin: 40px 0;
+            background: #080808;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+            font-family: monospace;
+        }
+
+        .layer {
+            width: 80%;
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #444;
+            color: #888;
+            transition: 0.3s;
+        }
+
+        .layer:hover { transform: scale(1.05); color: white; border-color: white; }
+        .layer-copper { background: #b87333; color: black !important; font-weight: bold; border: none; }
+        .layer-pad { background: #444; height: 5px; padding: 0; border: none; }
+        .layer-chip { background: #111; color: var(--accent); border-color: var(--accent); }
+        .layer-pcb { background: #004400; color: #00ff00; border: none; }
+
+        /* FOOTER FORCE BLACK */
+        footer {
+            background-color: #000 !important;
+            border-top: 1px solid #333;
+            padding: 60px 0;
+            text-align: center;
+            color: #666 !important;
+        }
+    </style>
+</head>
+<body style="background: #0a0a0a;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="../../index.html" class="logo" style="color: black;">RONIN_COMMS</a>
+            <nav class="nav-menu">
+                <a href="../blog.html" class="nav-link" style="color: white;">Back to Intel</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="post-hero">
+        <div class="container hero-content">
+            <div style="font-family: monospace; color: var(--accent); margin-bottom: 20px; font-size: 14px;">
+                // TRANSMISSION_ID: 011 :: TYPE: HARDWARE_MOD
+            </div>
+            <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); color: white; line-height: 1.1; margin-bottom: 30px;">
+                VOIDING WARRANTIES <br> FOR <span class="text-highlight">BETTER IOPS</span>
+            </h1>
+            <div style="display: flex; justify-content: center; gap: 30px; font-family: monospace; color: #888; font-size: 14px;">
+                <span>AUTHOR: THE HARDWARE LAB</span>
+                <span>::</span>
+                <span>JAN 25, 2026</span>
+                <span>::</span>
+                <span>6 MIN READ</span>
+            </div>
+        </div>
+    </section>
+
+    <article class="post-body">
+        
+        <p class="lead" style="font-size: 1.4rem; color: white; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 40px;">
+            The sticker on your NVMe drive says "Warranty Void if Removed." We remove it anyway. That sticker is a thermal insulator, and in high-performance computing, heat is the enemy of speed.
+        </p>
+
+        <p>
+            When building the Ronin database nodes, we faced a choice: Buy "Enterprise" U.2 SSDs for $600/TB, or buy "Consumer" Gen4 NVMe drives for $100/TB and hack them to survive server-grade workloads. We chose the hack.
+        </p>
+
+        <h2>The Thermal Throttle</h2>
+        <p>
+            Consumer drives (like the Samsung 990 Pro or WD Black) are incredibly fast—often faster than enterprise drives in burst speeds. But they are designed for gaming PCs, not 24/7 database writes.
+        </p>
+        <p>
+            When the NAND controller hits 70°C, it throttles. Your 7,000 MB/s write speed drops to 500 MB/s. In a database transaction, this looks like a system hang.
+        </p>
+
+        <div class="callout">
+            <h3>THE MODIFICATION</h3>
+            <p>
+                We don't trust the thin heat spreaders that come with the drives. We strip the drive down to the bare PCB and build a custom cooling stack.
+            </p>
+        </div>
+
+        <figure>
+            <img src="../../joshua.png" alt="Applying copper heatsink to NVMe drive">
+            <figcaption>
+                FIG A: Joshua (after 5 white Monsters) carefully applying the custom copper shim. Warranty status: Definitely void.
+            </figcaption>
+        </figure>
+
+        <h2>The Ronin Cooling Stack</h2>
+        <p>
+            We realized that passive cooling wasn't enough in a dense 1U rack. We needed mass. We sourced pure copper shims and high-performance thermal pads (12 W/mK) usually reserved for GPU repair.
+        </p>
+
+        <div class="thermal-stack">
+            <div class="layer layer-copper">SOLID COPPER HEATSINK (200g)</div>
+            <div class="layer layer-pad"></div>
+            <div class="layer layer-chip">NAND CONTROLLER (The Hot Part)</div>
+            <div class="layer layer-pad"></div>
+            <div class="layer layer-pcb">DRIVE PCB</div>
+        </div>
+
+        <p>
+            By removing the manufacturer's sticker (which traps heat) and applying direct copper contact, we dropped load temperatures from <strong>82°C to 45°C</strong>.
+        </p>
+
+        <h2>Software Hacking: Over-Provisioning</h2>
+        <p>
+            Hardware is half the battle. Enterprise drives last longer because they have "spare area"—hidden storage capacity used to replace dead cells. Consumer drives don't give you this by default.
+        </p>
+        <p>
+            But you can force it.
+        </p>
+        <p>
+            We use `nvme-cli` to tell the drive controller to reserve 20% of its capacity for background operations. We turn a 2TB drive into a 1.6TB drive.
+        </p>
+
+        <div class="code-block">
+            <span class="comment"># Unlocking hidden endurance</span><br>
+            <span class="keyword">sudo</span> nvme format /dev/nvme0n1 --lbaf=1 --ses=1<br>
+            <br>
+            <span class="comment"># Create a Host Protected Area (HPA)</span><br>
+            <span class="keyword">sudo</span> hdparm -N p3125627568 /dev/nvme0n1
+        </div>
+
+        <p>
+            This simple command gives the garbage collector massive breathing room. Write amplification goes down. Drive endurance goes up by 3x.
+        </p>
+
+        <h2>The Result</h2>
+        <p>
+            We built an "Enterprise" storage array for 1/5th of the cost. 
+        </p>
+        <p>
+            Did we void 50 warranties? <strong>Yes.</strong><br>
+            Do we care? <strong>No.</strong><br>
+            At this price point, the hardware is disposable. The data is what matters.
+        </p>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 60px 0;">
+
+        <h3>WE BUILD DIFFERENTLY</h3>
+        <p>
+            Most platforms hide the hardware from you. We optimize it at the atomic level.
+        </p>
+        
+        <a href="../../index.html" class="btn btn-primary" style="margin-top: 20px;">DEPLOY ON COPPER</a>
+
+    </article>
+
+    <footer>
+        <p style="font-family: monospace; margin: 0;">&copy; 2026 RONIN. MOD IT UNTIL IT BREAKS.</p>
+    </footer>
+
+</body>
+</html>

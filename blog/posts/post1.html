@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +101,7 @@
     <article class="post-body">
         
         <p class="lead" style="font-size: 1.5rem; color: white; font-weight: bold;">
-            We ran out of VC money. AWS credits were burning at a rate of $5,000 a month. We had a choice: Shut down the beta, or build our own cloud. We chose violence.
+            We refused the VC money. We rejected the AWS credits. We believe that if you cannot run it on your own metal, you do not own the platform.
         </p>
 
         <p>
@@ -115,7 +114,10 @@
         </p>
         <p>
             <strong>The total haul:</strong> 250 units. <br>
-            <strong>Cost:</strong> $12,000 (roughly 2 months of our AWS bill).
+            <strong>Cost:</strong> $12,000 (One time fee).
+        </p>
+        <p>
+            To rent equivalent compute power on AWS would cost roughly <strong>$15,000 every single month</strong>. We paid once. We own it forever.
         </p>
         
         <div style="border: 1px solid #333; padding: 10px;">
@@ -165,11 +167,11 @@
 
         <h2>4. Networking: The Nightmare</h2>
         <p>
-            Exposing 250 nodes behind a residential ISP NAT is impossible. We used <strong>WireGuard</strong> to create a mesh network. Every Pi dials out to a cheap VPS (the "Gateway") which acts as the public ingress.
+            Exposing 250 nodes behind a residential ISP NAT is impossible. We used <strong>WireGuard</strong> to create a mesh network. Every Pi dials out to a cheap bare-metal Gateway which acts as the public ingress.
         </p>
         <p>
             Traffic flow: <br>
-            <code>User -> VPS (Gateway) -> WireGuard Tunnel -> Raspberry Pi -> Container</code>
+            <code>User -> Gateway -> WireGuard Tunnel -> Raspberry Pi -> Container</code>
         </p>
         <p>
             Latency penalty? About 15ms. Acceptable for our use case (static sites and background workers).
@@ -181,17 +183,17 @@
         </p>
         <p>
             Is this production ready? <strong>Absolutely not.</strong><br>
-            Is it cooler than paying Amazon $5k a month? <strong>Yes.</strong>
+            Is it cooler than paying Amazon a ransom every month? <strong>Yes.</strong>
         </p>
 
         <hr style="border: 0; border-top: 1px solid #333; margin: 60px 0;">
 
         <h3>READY TO DEPLOY ON REAL HARDWARE?</h3>
         <p>
-            We took the lessons from the Pi cluster and built the Ronin Cloud. Same efficiency, enterprise-grade hardware.
+            We took the lessons from the Pi cluster and built Ronin Core. Same efficiency, any hardware.
         </p>
         
-        <a href="../index.html" class="btn btn-primary" style="margin-top: 20px;">START DEPLOYING</a>
+        <a href="../../index.html" class="btn btn-primary" style="margin-top: 20px;">START DEPLOYING</a>
 
     </article>
 

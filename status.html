@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN // STATUS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* --- STATUS PAGE STYLES --- */
+        body {
+            background-color: #050505;
+            color: #ccc;
+            /* Subtle Technical Grid */
+            background-image: 
+                linear-gradient(rgba(51, 51, 51, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 51, 51, 0.2) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-attachment: fixed;
+        }
+
+        /* HEADER */
+        .status-header {
+            padding: 100px 0 60px;
+            border-bottom: 1px solid #333;
+            background: rgba(5, 5, 5, 0.95); /* Slight transparency */
+            text-align: center;
+        }
+
+        .big-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #00aa00;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px rgba(0, 170, 0, 0.4);
+        }
+
+        .pulse-dot {
+            width: 20px;
+            height: 20px;
+            background: #00aa00;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #00aa00;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* GRID LAYOUT */
+        .system-grid {
+            display: grid;
+            gap: 40px;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .system-card {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .sys-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #222;
+        }
+
+        .sys-name {
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sys-percent {
+            font-family: monospace;
+            color: #00aa00;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* PICKET FENCE BARS */
+        .uptime-bars {
+            display: flex;
+            gap: 3px;
+            height: 45px;
+            margin-top: 20px;
+        }
+
+        .bar {
+            flex: 1;
+            background: #00aa00;
+            border-radius: 1px;
+            opacity: 0.7;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .bar:hover {
+            opacity: 1;
+            transform: scaleY(1.3);
+            box-shadow: 0 0 10px #00aa00;
+            z-index: 10;
+        }
+
+        .bar.down { background: #ff5f56; box-shadow: 0 0 5px #ff5f56; opacity: 1; }
+        .bar.slow { background: var(--accent); opacity: 1; }
+
+        /* TACTICAL TOOLTIP */
+        .bar[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 140%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            border: 1px solid #444;
+            color: #fff;
+            font-family: monospace;
+            font-size: 11px;
+            white-space: nowrap;
+            padding: 6px 10px;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+            pointer-events: none;
+        }
+        
+        .bar.down[data-tooltip]:hover::after { border-color: #ff5f56; color: #ff5f56; }
+        .bar.slow[data-tooltip]:hover::after { border-color: var(--accent); color: var(--accent); }
+
+        .legend {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-family: monospace;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+
+        /* INCIDENT LOG */
+        .incident-log {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .incident-item {
+            border-left: 2px solid #333;
+            padding-left: 30px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .incident-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        .incident-date {
+            color: var(--accent);
+            font-family: monospace;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .incident-title {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .incident-body {
+            color: #999;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body style="background: #050505;">
+
+    <header style="background: black; border-bottom: 1px solid #333;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="color: black;">RONIN_STATUS</a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link" style="color: white;">Home</a>
+                <a href="mailto:support@ronin.dev" class="nav-link" style="color: white;">Report Outage</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="status-header">
+        <div class="big-status-badge">
+            <div class="pulse-dot"></div>
+            ALL SYSTEMS OPERATIONAL
+        </div>
+        <p style="color: #666; font-family: monospace;">LAST SYNC: <span id="time">FETCHING...</span></p>
+    </section>
+
+    <div class="system-grid">
+        
+        <div class="system-card">
+            <div class="sys-header">
+                <span class="sys-name"><i data-lucide="server" size="18"></i> Control Plane API</span>
+                <span class="sys-percent">99.99%</span>
+            </div>
+            <div class="uptime-bars">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            </div>
+            <div class="legend">
+                <span>90 Days Ago</span>
+                <span>Today</span>
+            </div>
+        </div>
+
+        <div class="system-card">
+            <div class="sys-header">
+                <span class="sys-name"><i data-lucide="cpu" size="18"></i> Build Engine (Rust)</span>
+                <span class="sys-percent" style="color: var(--accent);">98.5%</span>
+            </div>
+            <div class="uptime-bars">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                
+                <div class="bar down" data-tooltip="CRASH: OOM KILLER"></div>
+                <div class="bar slow" data-tooltip="WARN: HIGH LATENCY"></div>
+                
+                <div class="bar"></div><div class="bar"></div>
+            </div>
+            <div class="legend">
+                <span>90 Days Ago</span>
+                <span>Today</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="incident-log">
+        <h2 style="color: white; border-bottom: 1px solid #333; padding-bottom: 15px; margin-bottom: 40px; font-size: 1.5rem;">INCIDENT HISTORY</h2>
+
+        <div class="incident-item">
+            <span class="incident-date">JAN 02, 2026</span>
+            <h3 class="incident-title">Degraded Performance on US-EAST-1</h3>
+            <p class="incident-body">
+                <strong>Resolved:</strong> We identified a traffic spike targeting our Registry ingress. The "Kill Switch" protocol was activated for the affected tenant, and traffic stabilized. Total impact time: 4 minutes.
+            </p>
+        </div>
+
+        <div class="incident-item">
+            <span class="incident-date">DEC 14, 2025</span>
+            <h3 class="incident-title">Scheduled Maintenance: Database Migration</h3>
+            <p class="incident-body">
+                <strong>Completed:</strong> Successfully migrated the core SQLite clusters to new NVMe storage arrays. No downtime observed during the handover.
+            </p>
+        </div>
+    </div>
+
+    <footer style="background: black; color: white; padding: 60px 0; border-top: 1px solid #333; text-align: center;">
+        <p style="color: #666; font-family: monospace;">&copy; 2025 RONIN. TRUST BUT VERIFY.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('time').innerText = new Date().toUTCString();
+    </script>
+
+</body>
+</html>
